@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <th:block th:fragment="drawer">
+    <!-- ================= MOBILE MENU DRAWER ================= -->
+    <div class="mobile-drawer-overlay"></div>
+    <aside class="mobile-drawer">
+      <div class="drawer-header">
+        <span class="logo-name" style="font-size: 1.2rem;">VƯỜN HOA TƯƠI</span>
+        <button class="drawer-close" aria-label="Đóng menu">
+          <svg style="width:24px;height:24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <ul class="drawer-nav">
+        <li><a th:href="@{/}">🌿 Trang Chủ</a></li>
+        <li><a th:href="@{/products}">🎂 Hoa Sinh Nhật</a></li>
+        <li><a th:href="@{/products}">🎉 Hoa Khai Trương</a></li>
+        <li><a th:href="@{/products}">💐 Bó Hoa Tươi</a></li>
+        <li><a th:href="@{/products}">🧺 Giỏ Hoa Sang Trọng</a></li>
+        <li><a th:href="@{/products}">📦 Hộp Hoa Mica</a></li>
+        <li><a th:href="@{/products}">🏛️ Kệ Hoa Sự Kiện</a></li>
+        <li><a th:href="@{/products}">📖 Cẩm Nang Hoa</a></li>
+        <li style="border-top: 1px solid #E8ECE6; padding-top: 14px; margin-top: 14px;"><a th:href="@{/cart}">🛒 Giỏ Hàng (2)</a></li>
+        <li><a th:href="@{/login}">👤 Đăng Nhập / Đăng Ký</a></li>
+        <li><a th:href="@{/admin/dashboard}">🛡️ Quản Trị Hệ Thống</a></li>
+      </ul>
+    </aside>
+  </th:block>
+</body>
+</html>

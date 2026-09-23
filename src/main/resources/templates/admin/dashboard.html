@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+  <title>Dashboard Quản Trị - Vườn Hoa Tươi Admin</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<!-- CONTENT -->
+      <div class="admin-content">
+        <div class="page-header-row">
+          <div class="page-header-text">
+            <h2>Chào buổi sáng, Quản Lý! 🌿</h2>
+            <p>Dưới đây là tình hình hoạt động kinh doanh tiệm hoa trong ngày hôm nay.</p>
+          </div>
+          <div>
+            <a th:href="@{/admin/products/form}" href="/admin/products/form" class="btn btn-primary">
+              <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              Thêm Mẫu Hoa Mới
+            </a>
+          </div>
+        </div>
+
+        <!-- STAT CARDS -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Doanh Thu Tháng Này</span>
+              <span class="stat-value">185.450.000₫</span>
+              <span class="stat-change up">
+                <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                +14.2% so với tháng trước
+              </span>
+            </div>
+            <div class="stat-icon green">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Tổng Đơn Hàng</span>
+              <span class="stat-value">342 Đơn</span>
+              <span class="stat-change up">
+                <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                +8.5% tăng trưởng
+              </span>
+            </div>
+            <div class="stat-icon blue">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Mẫu Hoa Đang Bán</span>
+              <span class="stat-value">128 Mẫu</span>
+              <span class="stat-change down">
+                <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0v-8m0 8l-8-8-4 4-6-6"/></svg>
+                4 mẫu sắp hết hoa
+              </span>
+            </div>
+            <div class="stat-icon purple">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Khách Hàng Mới</span>
+              <span class="stat-value">64 Thành Viên</span>
+              <span class="stat-change up">
+                <svg style="width:14px;height:14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                +18.0% tháng này
+              </span>
+            </div>
+            <div class="stat-icon gold">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- RECENT ORDERS TABLE -->
+        <div class="card-block">
+          <div class="card-header-flex">
+            <div>
+              <h3 class="card-title">Đơn Hàng Mới Nhất</h3>
+              <p style="font-size:0.85rem; color:#777777;">Các đơn hàng cần được duyệt và cắm hoa giao gấp</p>
+            </div>
+            <a th:href="@{/admin/orders}" href="/admin/orders" class="btn btn-outline btn-sm">Xem Tất Cả Đơn Hàng</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Mã Đơn</th>
+                  <th>Khách Hàng</th>
+                  <th>Ngày / Giờ Giao</th>
+                  <th>Tổng Tiền</th>
+                  <th>Thanh Toán</th>
+                  <th>Trạng Thái</th>
+                  <th>Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#VHT-8842</strong></td>
+                  <td>
+                    <div style="font-weight:600; color:#313131;">Nguyễn Hoàng Nam</div>
+                    <div style="font-size:0.78rem; color:#777777;">0908 123 456</div>
+                  </td>
+                  <td>22/09/2026 · 10:30 (Sáng)</td>
+                  <td><strong style="color:var(--color-accent);">1.130.000₫</strong></td>
+                  <td><span style="font-size:0.8rem; background:#EBF2EA; padding:2px 6px; border-radius:4px; color:#5D8357;">VietQR 24/7</span></td>
+                  <td><span class="badge-status pending">⏳ Chờ duyệt</span></td>
+                  <td>
+                    <a th:href="@{/admin/orders}" href="/admin/orders" class="btn btn-primary btn-sm">Duyệt Đơn</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>#VHT-8841</strong></td>
+                  <td>
+                    <div style="font-weight:600; color:#313131;">Lê Thị Mai Phương</div>
+                    <div style="font-size:0.78rem; color:#777777;">0938 987 654</div>
+                  </td>
+                  <td>22/09/2026 · 14:00 (Chiều)</td>
+                  <td><strong style="color:var(--color-accent);">650.000₫</strong></td>
+                  <td><span style="font-size:0.8rem; background:#EDF5FD; padding:2px 6px; border-radius:4px; color:#2F80ED;">MoMo</span></td>
+                  <td><span class="badge-status processing">🌸 Đang cắm hoa</span></td>
+                  <td>
+                    <a th:href="@{/admin/orders}" href="/admin/orders" class="btn btn-outline btn-sm">Chi Tiết</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>#VHT-8840</strong></td>
+                  <td>
+                    <div style="font-weight:600; color:#313131;">Trần Văn Tuấn</div>
+                    <div style="font-size:0.78rem; color:#777777;">0912 345 678</div>
+                  </td>
+                  <td>22/09/2026 · 09:15 (Sáng)</td>
+                  <td><strong style="color:var(--color-accent);">1.850.000₫</strong></td>
+                  <td><span style="font-size:0.8rem; background:#FEF6E7; padding:2px 6px; border-radius:4px; color:#E69500;">COD (Tiền mặt)</span></td>
+                  <td><span class="badge-status shipping">🚚 Đang giao hỏa tốc</span></td>
+                  <td>
+                    <a th:href="@{/admin/orders}" href="/admin/orders" class="btn btn-outline btn-sm">Chi Tiết</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>#VHT-8839</strong></td>
+                  <td>
+                    <div style="font-weight:600; color:#313131;">Phạm Khánh Linh</div>
+                    <div style="font-size:0.78rem; color:#777777;">0977 112 233</div>
+                  </td>
+                  <td>21/09/2026 · 16:30 (Chiều)</td>
+                  <td><strong style="color:var(--color-accent);">850.000₫</strong></td>
+                  <td><span style="font-size:0.8rem; background:#EBF2EA; padding:2px 6px; border-radius:4px; color:#5D8357;">VietQR 24/7</span></td>
+                  <td><span class="badge-status completed">✅ Hoàn tất</span></td>
+                  <td>
+                    <a th:href="@{/admin/orders}" href="/admin/orders" class="btn btn-outline btn-sm">Chi Tiết</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TOP SELLING PRODUCTS -->
+        <div class="card-block">
+          <div class="card-header-flex">
+            <h3 class="card-title">Top Mẫu Hoa Bán Chạy Trong Tháng</h3>
+            <a th:href="@{/admin/products}" href="/admin/products" class="btn btn-outline btn-sm">Quản Lý Kho Hoa</a>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Sản Phẩm</th>
+                  <th>Danh Mục</th>
+                  <th>Giá Bán</th>
+                  <th>Đã Bán</th>
+                  <th>Tồn Kho</th>
+                  <th>Doanh Thu</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                      <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=120&auto=format&fit=crop" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="Bó hoa Tulip White July">
+                      <span style="font-weight:600; color:#313131;">Bó Hoa Tulip White July</span>
+                    </div>
+                  </td>
+                  <td>Bó Hoa Tươi</td>
+                  <td>650.000₫</td>
+                  <td><strong>68 bó</strong></td>
+                  <td><span style="color:#27AE60; font-weight:600;">32 cành</span></td>
+                  <td><strong>44.200.000₫</strong></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                      <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=120&auto=format&fit=crop" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="Bó hoa Sophia Mix">
+                      <span style="font-weight:600; color:#313131;">Bó Hoa Sophia Mix Pink Style</span>
+                    </div>
+                  </td>
+                  <td>Hoa Sinh Nhật</td>
+                  <td>480.000₫</td>
+                  <td><strong>54 bó</strong></td>
+                  <td><span style="color:#27AE60; font-weight:600;">18 cành</span></td>
+                  <td><strong>25.920.000₫</strong></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                      <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=120&auto=format&fit=crop" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="Hộp hoa Mica Tulip Pink Charm">
+                      <span style="font-weight:600; color:#313131;">Hộp Hoa Mica Tulip Pink Charm</span>
+                    </div>
+                  </td>
+                  <td>Hộp Hoa Mica</td>
+                  <td>850.000₫</td>
+                  <td><strong>42 hộp</strong></td>
+                  <td><span style="color:#E67E22; font-weight:600;">5 hộp (Sắp hết)</span></td>
+                  <td><strong>35.700.000₫</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</body>
+</html>

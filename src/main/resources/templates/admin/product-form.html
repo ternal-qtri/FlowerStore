@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+  <title>Thêm / Chỉnh Sửa Mẫu Hoa - Vườn Hoa Tươi Admin</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<div class="admin-content">
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Đã lưu thông tin mẫu hoa!'); window.location.href=\'/admin/products\';">
+          <div class="page-header-row">
+            <div class="page-header-text">
+              <h2>Chi Tiết Mẫu Hoa Tươi</h2>
+              <p>Điền thông tin mô tả, giá bán và chọn ảnh sắc nét cho mẫu hoa.</p>
+            </div>
+            <div style="display:flex; gap:12px;">
+              <a th:href="@{/admin/products}" href="/admin/products" class="btn btn-outline">Hủy Bỏ</a>
+              <button type="submit" class="btn btn-primary">Lưu Sản Phẩm</button>
+            </div>
+          </div>
+
+          <div class="form-grid-2" style="grid-template-columns: 1fr 340px;">
+            
+            <!-- THÔNG TIN CHÍNH -->
+            <div class="card-block">
+              <h3 class="card-title" style="margin-bottom:20px;">Thông Tin Cơ Bản</h3>
+
+              <div class="form-group">
+                <label class="form-label">Tên Mẫu Hoa <span style="color:red;">*</span></label>
+                <input type="text" class="form-control" placeholder="Ví dụ: Bó Hoa Tulip White July - Trắng Tinh Khôi" value="Bó Hoa Tulip White July - Trắng Tinh Khôi" required>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Mã SKU <span style="color:red;">*</span></label>
+                  <input type="text" class="form-control" placeholder="VHT-TLP-001" value="VHT-TLP-001" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Danh Mục Chính</label>
+                  <select class="form-control">
+                    <option value="bo-hoa">Bó Hoa Tươi</option>
+                    <option value="hoa-sinh-nhat">Hoa Sinh Nhật</option>
+                    <option value="hoa-khai-truong">Hoa Khai Trương</option>
+                    <option value="hop-mica">Hộp Hoa Mica</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label class="form-label">Giá Bán Khuyến Mãi (₫) <span style="color:red;">*</span></label>
+                  <input type="number" class="form-control" placeholder="650000" value="650000" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Giá Gốc Niêm Yết (₫)</label>
+                  <input type="number" class="form-control" placeholder="750000" value="750000">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Thành Phần Hoa & Giấy Gói</label>
+                <textarea class="form-control" rows="3" placeholder="Nhập chi tiết: 10 bông Tulip trắng Hà Lan, lá bạc nhập khẩu, giấy gói lụa cao cấp...">10 Bông Tulip trắng Hà Lan nhập khẩu, Lá bạc Eucalyptus, Giấy gói lụa Hàn Quốc trang nhã, Nơ ruy băng satin.</textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Mô Tả Sản Phẩm & Ý Nghĩa</label>
+                <textarea class="form-control" rows="5" placeholder="Viết câu chuyện và thông điệp của bó hoa...">Bó hoa Tulip White July mang vẻ đẹp thuần khiết, đại diện cho tình yêu chân thành và sự trân quý sâu sắc. Từng đóa tulip trắng được tuyển chọn kỹ lưỡng mỗi sáng sớm từ nhà vườn Đà Lạt và nhập khẩu Hà Lan.</textarea>
+              </div>
+            </div>
+
+            <!-- ẢNH SẢN PHẨM & CẤU HÌNH -->
+            <div style="display:flex; flex-direction:column; gap:24px;">
+              <div class="card-block">
+                <h3 class="card-title" style="margin-bottom:16px;">Hình Ảnh Đại Diện</h3>
+                <div class="form-group">
+                  <input type="file" class="form-control image-upload-input" data-preview-target="product-main-preview">
+                  <div style="margin-top:12px;">
+                    <img id="product-main-preview" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600&auto=format&fit=crop" style="width:100%; height:220px; object-fit:cover; border-radius:8px; border:1px solid var(--admin-border);" alt="Ảnh đại diện">
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-block">
+                <h3 class="card-title" style="margin-bottom:16px;">Trạng Thái & Badge</h3>
+
+                <div class="form-group">
+                  <label class="form-label">Số Lượng Tồn Kho</label>
+                  <input type="number" class="form-control" value="32">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Huy Hiệu Nổi Bật</label>
+                  <div style="display:flex; flex-direction:column; gap:8px;">
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                      <input type="checkbox" checked> Badge Giao 60 phút
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                      <input type="checkbox" checked> Badge Giảm Giá (SALE -13%)
+                    </label>
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                      <input type="checkbox"> Badge Mẫu Mới
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Trạng Thái Hiển Thị</label>
+                  <select class="form-control">
+                    <option value="active">Đang Bán Trên Store</option>
+                    <option value="draft">Bản Nháp (Ẩn)</option>
+                    <option value="out_of_stock">Tạm Hết Hàng</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+  </div>
+</body>
+</html>

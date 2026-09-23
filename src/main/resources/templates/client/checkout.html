@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
+<head>
+  <title>Thanh Toán & Đặt Hoa - Vườn Hoa Tươi HCM</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<!-- ================= BREADCRUMB ================= -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li class="breadcrumb-item"><a th:href="@{/}" href="/">Trang chủ</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item"><a th:href="@{/cart}" href="/cart">Giỏ hàng</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item active">Thanh toán & Đặt hàng</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= CHECKOUT MAIN ================= -->
+  <main class="checkout-section">
+    <div class="container">
+      
+      <div style="margin-bottom: 28px;">
+        <h1 style="font-family: var(--font-heading); font-size: 2rem; color: var(--color-text-main); font-weight: 600;">Thông Tin Đặt Hàng & Giao Hoa</h1>
+        <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-top: 4px;">Vui lòng điền thông tin người nhận và chọn thời gian giao hàng mong muốn</p>
+      </div>
+
+      <form th:action="@{/order-success}" action="/order-success" method="GET">
+        <div class="checkout-layout">
+          
+          <!-- Left Column: Checkout Steps Forms -->
+          <div class="checkout-forms">
+            
+            <!-- STEP 1: Receiver & Delivery Info -->
+            <div class="checkout-block">
+              <h2 class="checkout-block-title">
+                <span class="step-num">1</span>
+                <span>Thông Tin Giao Hàng & Nhận Hoa</span>
+              </h2>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="receiver-name" class="form-label">Họ và tên người nhận hoa <span class="required">*</span></label>
+                  <input type="text" id="receiver-name" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" value="Nguyễn Văn An" required>
+                </div>
+                <div class="form-group">
+                  <label for="receiver-phone" class="form-label">Số điện thoại liên hệ nhận hoa <span class="required">*</span></label>
+                  <input type="tel" id="receiver-phone" class="form-input" placeholder="Ví dụ: 0909123456" value="0909123456" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="receiver-email" class="form-label">Email (Nhận thông báo đơn hàng & Hóa đơn) <span class="required">*</span></label>
+                <input type="email" id="receiver-email" class="form-input" placeholder="nguyenvanan@gmail.com" value="nguyenvanan@gmail.com" required>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="city" class="form-label">Tỉnh / Thành phố <span class="required">*</span></label>
+                  <select id="city" class="form-input">
+                    <option value="hcm" selected>TP. Hồ Chí Minh</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="district" class="form-label">Quận / Huyện <span class="required">*</span></label>
+                  <select id="district" class="form-input" required>
+                    <option value="">-- Chọn Quận/Huyện --</option>
+                    <option value="q1">Quận 1</option>
+                    <option value="q3" selected>Quận 3</option>
+                    <option value="q5">Quận 5</option>
+                    <option value="q7">Quận 7</option>
+                    <option value="q10">Quận 10</option>
+                    <option value="bt">Bình Thạnh</option>
+                    <option value="tb">Tân Bình</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="address-detail" class="form-label">Địa chỉ giao hoa chi tiết (Số nhà, tên đường, căn hộ/tòa nhà) <span class="required">*</span></label>
+                <input type="text" id="address-detail" class="form-input" placeholder="Ví dụ: 704/19 Nguyễn Đình Chiểu, Phường 1" value="704/19 Nguyễn Đình Chiểu, Phường 1" required>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="delivery-date" class="form-label">Ngày giao hoa <span class="required">*</span></label>
+                  <input type="date" id="delivery-date" class="form-input" value="2026-09-22" required>
+                </div>
+                <div class="form-group">
+                  <label for="delivery-time" class="form-label">Khung giờ giao hoa <span class="required">*</span></label>
+                  <select id="delivery-time" class="form-input" required>
+                    <option value="express" selected>⚡ Giao hỏa tốc (60 - 90 phút)</option>
+                    <option value="slot1">08:00 - 10:00 sáng</option>
+                    <option value="slot2">10:00 - 12:00 trưa</option>
+                    <option value="slot3">13:30 - 15:30 chiều</option>
+                    <option value="slot4">16:00 - 18:00 chiều</option>
+                    <option value="slot5">18:00 - 20:00 tối</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="greeting-card-msg" class="form-label">Nội dung in trên thiệp / banner (Tặng kèm miễn phí)</label>
+                <textarea id="greeting-card-msg" rows="3" class="form-input" style="height: auto; padding: 12px;" placeholder="Ví dụ: Mừng Sinh Nhật Em Yêu! Chúc em luôn rạng rỡ như những đóa hoa tulip này. - Tuấn KTS">Mừng Sinh Nhật Em Yêu! Chúc em luôn luôn rạng rỡ và hạnh phúc. - Tuấn KTS</textarea>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <label class="checkbox-label">
+                  <input type="checkbox" checked>
+                  <span>Gửi ảnh chụp sản phẩm thực tế qua Zalo/Email cho tôi duyệt trước khi giao</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- STEP 2: Payment Method -->
+            <div class="checkout-block">
+              <h2 class="checkout-block-title">
+                <span class="step-num">2</span>
+                <span>Phương Thức Thanh Toán</span>
+              </h2>
+
+              <div class="payment-methods-list">
+                
+                <!-- Payment 1: VietQR -->
+                <label class="payment-method-card active">
+                  <input type="radio" name="payment_method" value="vietqr" checked>
+                  <div class="payment-method-info">
+                    <div class="payment-method-name">
+                      Chuyển khoản Ngân hàng (VietQR Tự Động)
+                      <span class="payment-badge-rec">KHUYÊN DÙNG</span>
+                    </div>
+                    <div class="payment-method-desc">Quét mã QR qua ứng dụng ngân hàng, đơn hàng được xử lý và làm hoa ngay lập tức.</div>
+                  </div>
+                </label>
+
+                <!-- Payment 2: MoMo -->
+                <label class="payment-method-card">
+                  <input type="radio" name="payment_method" value="momo">
+                  <div class="payment-method-info">
+                    <div class="payment-method-name">Ví Điện Tử MoMo</div>
+                    <div class="payment-method-desc">Thanh toán siêu tốc qua ứng dụng Ví MoMo trên điện thoại.</div>
+                  </div>
+                </label>
+
+                <!-- Payment 3: ZaloPay -->
+                <label class="payment-method-card">
+                  <input type="radio" name="payment_method" value="zalopay">
+                  <div class="payment-method-info">
+                    <div class="payment-method-name">Ví ZaloPay / QR ZaloPay</div>
+                    <div class="payment-method-desc">Thanh toán tiện lợi qua Ví ZaloPay hoặc ứng dụng Zalo.</div>
+                  </div>
+                </label>
+
+                <!-- Payment 4: COD -->
+                <label class="payment-method-card">
+                  <input type="radio" name="payment_method" value="cod">
+                  <div class="payment-method-info">
+                    <div class="payment-method-name">Thanh toán khi nhận hoa (COD)</div>
+                    <div class="payment-method-desc">Thanh toán tiền mặt cho shipper khi nhận hoa tươi (Áp dụng cho đơn hàng dưới 2.000.000đ).</div>
+                  </div>
+                </label>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Order Summary & Place Order CTA -->
+          <div class="checkout-sidebar">
+            <div class="cart-summary-card" style="position: sticky; top: 100px;">
+              <h2 class="summary-title" style="display: flex; align-items: center; justify-content: space-between;">
+                <span>Đơn Hàng Của Bạn</span>
+                <a th:href="@{/cart}" href="/cart" style="font-size: 0.8rem; font-family: var(--font-body); font-weight: 500; color: var(--color-primary); text-decoration: underline;">Sửa giỏ hàng</a>
+              </h2>
+
+              <!-- Product Item List -->
+              <div style="margin-bottom: 20px;">
+                <div class="checkout-summary-item">
+                  <div class="checkout-summary-thumb">
+                    <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=300&auto=format&fit=crop" alt="Bó Hoa Tulip White July">
+                    <span class="checkout-summary-qty">1</span>
+                  </div>
+                  <div style="flex: 1;">
+                    <div class="checkout-summary-name">Bó Hoa Tulip White July</div>
+                    <div class="checkout-summary-meta">Size Tiêu chuẩn</div>
+                  </div>
+                  <div style="font-size: 0.88rem; font-weight: 600; color: var(--color-text-main);">850.000đ</div>
+                </div>
+
+                <div class="checkout-summary-item">
+                  <div class="checkout-summary-thumb">
+                    <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=300&auto=format&fit=crop" alt="Lẵng Hoa Hướng Dương Bright Day">
+                    <span class="checkout-summary-qty">1</span>
+                  </div>
+                  <div style="flex: 1;">
+                    <div class="checkout-summary-name">Lẵng Hoa Hướng Dương Bright Day</div>
+                    <div class="checkout-summary-meta">Size Lớn (+150K)</div>
+                  </div>
+                  <div style="font-size: 0.88rem; font-weight: 600; color: var(--color-text-main);">1.100.000đ</div>
+                </div>
+
+                <div class="checkout-summary-item">
+                  <div class="checkout-summary-thumb">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=300&auto=format&fit=crop" alt="Hộp Hoa Hồng Ecuador">
+                    <span class="checkout-summary-qty">2</span>
+                  </div>
+                  <div style="flex: 1;">
+                    <div class="checkout-summary-name">Hộp Hoa Hồng Ecuador Velvet Red</div>
+                    <div class="checkout-summary-meta">Size Tiêu chuẩn</div>
+                  </div>
+                  <div style="font-size: 0.88rem; font-weight: 600; color: var(--color-text-main);">1.360.000đ</div>
+                </div>
+              </div>
+
+              <!-- Price Breakdown -->
+              <div class="summary-row">
+                <span>Tạm tính:</span>
+                <span style="font-weight: 600; color: var(--color-text-main);">3.310.000đ</span>
+              </div>
+
+              <div class="summary-row" style="color: var(--color-primary-dark);">
+                <span>Giảm giá (VUONHOATUOI10):</span>
+                <span style="font-weight: 600;">-100.000đ</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Phí giao hoa:</span>
+                <span style="font-weight: 500; color: var(--color-primary);">Miễn phí (Nội thành HCM)</span>
+              </div>
+
+              <div class="summary-row total">
+                <span>Tổng thanh toán:</span>
+                <div style="text-align: right;">
+                  <div class="total-price">3.210.000đ</div>
+                  <div style="font-size: 0.75rem; font-weight: 400; color: var(--color-text-muted); margin-top: 2px;">(Đã bao gồm thuế VAT)</div>
+                </div>
+              </div>
+
+              <div style="margin-top: 24px;">
+                <button type="submit" class="btn btn-accent btn-full" style="padding: 16px; font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; text-transform: uppercase;">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="22" height="22"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span>XÁC NHẬN ĐẶT HÀNG</span>
+                </button>
+              </div>
+
+              <p style="font-size: 0.78rem; color: var(--color-text-muted); text-align: center; margin-top: 14px; line-height: 1.5;">
+                Bằng việc nhấn "Xác nhận đặt hàng", bạn đồng ý tuân thủ các <a href="#" style="color: var(--color-primary); text-decoration: underline;">Điều khoản dịch vụ</a> của Vườn Hoa Tươi.
+              </p>
+
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
+<head>
+  <title>Lịch Sử Đơn Hàng - Vườn Hoa Tươi HCM</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<!-- ================= BREADCRUMB ================= -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li class="breadcrumb-item"><a th:href="@{/}" href="/">Trang chủ</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item"><a th:href="@{/profile}" href="/profile">Tài khoản của tôi</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item active">Lịch sử đơn hàng</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= ACCOUNT SECTION ================= -->
+  <main class="account-section">
+    <div class="container">
+      <div class="account-layout">
+        
+        <!-- Left Sidebar Navigation -->
+        <aside class="account-sidebar">
+          <div class="account-user-box">
+            <div class="account-user-avatar">AN</div>
+            <div>
+              <div class="account-user-name">Nguyễn Văn An</div>
+              <span class="account-user-badge">⭐ Thành viên Thân Thiết (1.250 điểm)</span>
+            </div>
+          </div>
+
+          <nav class="account-nav">
+            <a th:href="@{/profile}" href="/profile" class="account-nav-link">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+              <span>Thông tin tài khoản</span>
+            </a>
+            <a th:href="@{/my-orders}" href="/my-orders" class="account-nav-link active">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+              <span>Đơn hàng của tôi (2)</span>
+            </a>
+            <a th:href="@{/change-password}" href="/change-password" class="account-nav-link">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              <span>Đổi mật khẩu</span>
+            </a>
+            <a th:href="@{/login}" href="/login" class="account-nav-link" style="color: var(--color-accent); margin-top: 8px;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+              <span>Đăng xuất</span>
+            </a>
+          </nav>
+        </aside>
+
+        <!-- Right Content: Order History -->
+        <section class="account-content-card">
+          <h1 class="account-content-title">Lịch Sử Đơn Hàng</h1>
+
+          <!-- Status Filter Tabs -->
+          <div class="order-status-tabs">
+            <button type="button" class="order-status-tab active">Tất cả (2)</button>
+            <button type="button" class="order-status-tab">Chờ thanh toán (1)</button>
+            <button type="button" class="order-status-tab">Đang làm hoa (0)</button>
+            <button type="button" class="order-status-tab">Đã hoàn thành (1)</button>
+            <button type="button" class="order-status-tab">Đã hủy (0)</button>
+          </div>
+
+          <!-- Order Item 1 (Newest / Pending VietQR) -->
+          <div class="order-card">
+            <div class="order-card-header">
+              <div>
+                <strong>Đơn hàng #VHT-88392</strong>
+                <span style="color: var(--color-text-muted); margin-left: 10px; font-size: 0.8rem;">(Ngày đặt: 22/09/2026 14:30)</span>
+              </div>
+              <span class="badge-order-status status-pending">Chờ thanh toán VietQR</span>
+            </div>
+
+            <div class="order-card-body">
+              <div class="checkout-summary-item" style="padding: 8px 0;">
+                <div class="checkout-summary-thumb">
+                  <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=300&auto=format&fit=crop" alt="Bó Hoa Tulip White July">
+                </div>
+                <div style="flex: 1;">
+                  <div class="checkout-summary-name">Bó Hoa Tulip White July - Trắng Tinh Khôi</div>
+                  <div class="checkout-summary-meta">Size Tiêu chuẩn | Kèm Thiệp Mừng</div>
+                </div>
+                <div style="font-size: 0.88rem; font-weight: 600; color: var(--color-text-main);">850.000đ x 1</div>
+              </div>
+
+              <div class="checkout-summary-item" style="padding: 8px 0;">
+                <div class="checkout-summary-thumb">
+                  <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=300&auto=format&fit=crop" alt="Lẵng Hoa Hướng Dương Bright Day">
+                </div>
+                <div style="flex: 1;">
+                  <div class="checkout-summary-name">Lẵng Hoa Hướng Dương Bright Day</div>
+                  <div class="checkout-summary-meta">Size Lớn (+150K)</div>
+                </div>
+                <div style="font-size: 0.88rem; font-weight: 600; color: var(--color-text-main);">1.100.000đ x 1</div>
+              </div>
+
+              <div class="checkout-summary-item" style="padding: 8px 0;">
+                <div class="checkout-summary-thumb">
+                  <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=300&auto=format&fit=crop" alt="Hộp Hoa Hồng Ecuador Velvet Red">
+                </div>
+                <div style="flex: 1;">
+                  <div class="checkout-summary-name">Hộp Hoa Hồng Ecuador Velvet Red</div>
+                  <div class="checkout-summary-meta">Size Tiêu chuẩn</div>
+                </div>
+                <div style="font-size: 0.88rem; font-weight: 600; color: var(--color-text-main);">680.000đ x 2</div>
+              </div>
+            </div>
+
+            <div class="order-card-footer">
+              <div style="font-size: 0.9rem;">
+                Tổng tiền: <span style="font-size: 1.15rem; font-weight: 700; color: var(--color-accent); margin-left: 6px;">3.210.000đ</span>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <button type="button" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;" onclick="alert('Vui lòng liên hệ Hotline 093.188.8180 để hỗ trợ hủy đơn hàng này.')">Hủy Đơn</button>
+                <a th:href="@{/order-success}" href="/order-success" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.82rem;">Thanh Toán VietQR</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Item 2 (Completed) -->
+          <div class="order-card">
+            <div class="order-card-header">
+              <div>
+                <strong>Đơn hàng #VHT-82104</strong>
+                <span style="color: var(--color-text-muted); margin-left: 10px; font-size: 0.8rem;">(Ngày đặt: 14/08/2026 09:15)</span>
+              </div>
+              <span class="badge-order-status status-completed">Đã hoàn thành</span>
+            </div>
+
+            <div class="order-card-body">
+              <div class="checkout-summary-item" style="padding: 8px 0;">
+                <div class="checkout-summary-thumb">
+                  <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=300&auto=format&fit=crop" alt="Lẵng Hoa Khai Trương Phát Tài Red Satin">
+                </div>
+                <div style="flex: 1;">
+                  <div class="checkout-summary-name">Lẵng Hoa Khai Trương Phát Tài Red Satin</div>
+                  <div class="checkout-summary-meta">Kèm Kệ Đứng & Banner In Tên Công Ty</div>
+                </div>
+                <div style="font-size: 0.88rem; font-weight: 600; color: var(--color-text-main);">1.850.000đ x 1</div>
+              </div>
+            </div>
+
+            <div class="order-card-footer">
+              <div style="font-size: 0.9rem;">
+                Tổng tiền: <span style="font-size: 1.15rem; font-weight: 700; color: var(--color-accent); margin-left: 6px;">1.850.000đ</span>
+              </div>
+              <div>
+                <a th:href="@{/cart}" href="/cart" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.82rem;">Đặt Lại Đơn Này</a>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  </div>
+</body>
+</html>

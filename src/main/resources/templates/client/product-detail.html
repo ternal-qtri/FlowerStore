@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
+<head>
+  <title>Bó Hoa Tulip White July - Trắng Tinh Khôi - Vườn Hoa Tươi</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<!-- ================= BREADCRUMB ================= -->
+  <div class="breadcrumb-wrap">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a th:href="@{/}" href="/">Trang Chủ</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li><a th:href="@{/products}" href="/products">Bó Hoa Tươi</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li style="color: var(--color-text-main); font-weight: 500;">Bó Hoa Tulip White July</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= MAIN PRODUCT DETAIL CONTAINER ================= -->
+  <main class="p-detail-container">
+    <div class="container">
+      
+      <!-- Top Grid: Gallery & Customization Info -->
+      <div class="p-detail-grid">
+        
+        <!-- Left: Image Gallery -->
+        <div class="gallery-wrap">
+          <div class="main-image-box">
+            <img id="main-product-img" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=1000&auto=format&fit=crop" alt="Bó Hoa Tulip White July - Trắng Tinh Khôi">
+          </div>
+          <!-- <div class="gallery-thumbs">
+            <div class="thumb-item active">
+              <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=200&auto=format&fit=crop" alt="Góc 1">
+            </div>
+            <div class="thumb-item">
+              <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=200&auto=format&fit=crop" alt="Góc 2">
+            </div>
+            <div class="thumb-item">
+              <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=200&auto=format&fit=crop" alt="Góc 3">
+            </div>
+            <div class="thumb-item">
+              <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?q=80&w=200&auto=format&fit=crop" alt="Góc 4">
+            </div>
+          </div> -->
+        </div>
+
+        <!-- Right: Product Customization & Ordering Form -->
+        <div class="p-detail-info">
+          <div class="p-detail-meta">
+            <span>Danh mục: <strong>Bó Hoa Tươi</strong></span>
+            <span>•</span>
+            <span>Mã SP: <strong>VHT-TL102</strong></span>
+            <span>•</span>
+            <span style="color: #27AE60; font-weight: 500;">✓ Còn hoa (Giao nhanh 60p)</span>
+          </div>
+
+          <h1 class="p-detail-title">Bó Hoa Tulip White July - Trắng Tinh Khôi</h1>
+
+          <div class="p-detail-rating">
+            <div class="p-detail-stars">
+              <svg style="width:16px;height:16px;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg style="width:16px;height:16px;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg style="width:16px;height:16px;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg style="width:16px;height:16px;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+              <svg style="width:16px;height:16px;" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <span><strong>5.0</strong> (48 Đánh giá của khách hàng)</span>
+          </div>
+
+          <!-- Price Box -->
+          <div class="p-detail-price-box">
+            <span class="p-detail-price">650.000₫</span>
+            <span class="p-detail-old-price">750.000₫</span>
+            <span class="save-badge">Tiết kiệm 100.000₫ (-13%)</span>
+          </div>
+
+          <p class="p-detail-desc">
+            Bó hoa Tulip trắng nhập khẩu Hà Lan phối cùng cúc tana mộc mạc và lá bạc nhập. Món quà mang thông điệp tình yêu thuần khiết, chân thành và sự trân trọng tuyệt đối dành cho người thương.
+          </p>
+
+          <!-- Flower Composition Box -->
+          <div class="composition-box">
+            <div class="composition-title">
+              <svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              Thành Phần Hoa Thiết Kế:
+            </div>
+            <ul class="composition-list">
+              <li>10 cành Tulip trắng nhập khẩu Hà Lan căng nụ</li>
+              <li>Cúc Tana Hà Lan mộc mạc điểm xuyết xung quanh</li>
+              <li>Lá bạc Eucalyptus nhập khẩu tạo điểm nhấn mềm mại</li>
+              <li>Giấy gói lụa cao cấp phối nơ ruy-băng xanh rêu Botanic</li>
+            </ul>
+          </div>
+
+          <form th:action="@{/checkout}" action="/checkout" method="GET">
+            
+            <!-- Option Size / Version -->
+            <div class="option-section">
+              <label class="option-label">Chọn Kích Cỡ / Phiên Bản Bó Hoa:</label>
+              <div class="size-selector">
+                <div class="size-btn active">
+                  <span class="size-name">Tiêu Chuẩn</span>
+                  <span class="size-price">10 cành Tulip · 650.000₫</span>
+                </div>
+                <div class="size-btn">
+                  <span class="size-name">Deluxe</span>
+                  <span class="size-price">15 cành Tulip · 890.000₫</span>
+                </div>
+                <div class="size-btn">
+                  <span class="size-name">Premium</span>
+                  <span class="size-price">20 cành Tulip · 1.150.000₫</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Free Greeting Card Text -->
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label class="form-label" for="card-text">Nội Dung In Trên Thiệp Mừng (Miễn Phí):</label>
+              <div class="input-wrap">
+                <input type="text" id="card-text" class="form-input" placeholder="Ví dụ: Chúc mừng sinh nhật em yêu! Mãi yêu em..." value="Chúc em luôn rạng rỡ và hạnh phúc như những đóa Tulip trắng!">
+              </div>
+            </div>
+
+            <!-- Addon Options -->
+            <div class="option-section">
+              <label class="option-label">Mua Kèm Quà Tặng Ưu Đãi:</label>
+              <div class="addon-list">
+                <label class="addon-item checkbox-label">
+                  <span style="display:flex;align-items:center;gap:8px;">
+                    <input type="checkbox" checked>
+                    <span>🎂 Bánh kem mini trang trí hoa tươi (12cm)</span>
+                  </span>
+                  <strong style="color:var(--color-primary-dark);">+150.000₫</strong>
+                </label>
+                <label class="addon-item checkbox-label">
+                  <span style="display:flex;align-items:center;gap:8px;">
+                    <input type="checkbox">
+                    <span>🧸 Gấu bông mini đính nơ xinh xắn (20cm)</span>
+                  </span>
+                  <strong style="color:var(--color-primary-dark);">+80.000₫</strong>
+                </label>
+              </div>
+            </div>
+
+            <!-- Quantity & CTA Buttons -->
+            <div class="option-section">
+              <label class="option-label">Số Lượng:</label>
+              <div class="cta-row">
+                <div class="quantity-control">
+                  <button type="button" class="qty-btn">-</button>
+                  <input type="text" class="qty-input" value="1" readonly>
+                  <button type="button" class="qty-btn">+</button>
+                </div>
+                
+                <button type="submit" class="btn btn-accent btn-full" style="padding: 12px 20px;">
+                  🚀 Mua Ngay (Giao Hỏa Tốc 60p)
+                </button>
+                <a th:href="@{/cart}" href="/cart" class="btn btn-outline" style="padding: 12px 20px;">
+                  🛒 Thêm Vào Giỏ
+                </a>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+      <!-- Detail Tabs (Mô tả chi tiết & Cam kết) -->
+      <div class="detail-tabs-wrap">
+        <div class="detail-tab-nav">
+          <button class="detail-tab-btn active">Mô Tả Chi Tiết & Ý Nghĩa</button>
+          <button class="detail-tab-btn">Cam Kết Dịch Vụ 4 Bước</button>
+          <button class="detail-tab-btn">Hướng Dẫn Dưỡng Hoa Tươi Lâu</button>
+        </div>
+
+        <div class="detail-tab-content">
+          <p style="margin-bottom: 14px;"><strong>Tulip White July</strong> là biểu tượng thuần khiết nhất của tình yêu chân thành và sự trân trọng. Những đóa Tulip trắng nhập khẩu trực tiếp từ Hà Lan được Vườn Hoa Tươi thiết kế theo phong cách Hàn Quốc tối giản nhưng vô cùng tinh tế.</p>
+          <p style="margin-bottom: 14px;">Mẫu bó hoa này đặc biệt phù hợp để tặng sinh nhật người yêu, tặng kỷ niệm ngày cưới, tặng mẹ hoặc đồng nghiệp trong các dịp chúc mừng đặc biệt.</p>
+          <ul style="padding-left: 20px; list-style-type: check;">
+            <li>100% Hoa tươi mới nhập hàng ngày từ Đà Lạt & Hà Lan.</li>
+            <li>Đính kèm thiệp chúc mừng thiết kế in theo nội dung riêng của bạn.</li>
+            <li>Gửi ảnh chụp hoa thực tế trước khi giao để bạn duyệt hài lòng 100%.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Related Products -->
+      <div class="products-section" style="background:none; padding: 60px 0 0 0;">
+        <div class="section-header">
+          <div class="section-subtitle">Gợi ý dành cho bạn</div>
+          <h2 class="section-title">Mẫu Hoa Tương Tự</h2>
+        </div>
+
+        <div class="product-grid">
+          <!-- Item 1 -->
+          <div class="product-card">
+            <div class="product-thumb">
+              <span class="badge-stack"><span class="badge badge-hot">Hot</span></span>
+              <a th:href="@{/product-detail}" href="/product-detail">
+                <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600&auto=format&fit=crop" alt="Bó Hoa Sophia Mix">
+              </a>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Hoa Sinh Nhật</span>
+              <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Bó Hoa Sophia Mix - Hồng Pastel & Cúc Tana</a></h3>
+              <div class="product-price-row">
+                <span class="price-current">480.000₫</span>
+              </div>
+              <div class="product-actions">
+                <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">Xem chi tiết</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="product-card">
+            <div class="product-thumb">
+              <span class="badge-stack"><span class="badge badge-new">Mới</span></span>
+              <a th:href="@{/product-detail}" href="/product-detail">
+                <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=600&auto=format&fit=crop" alt="Hộp Hoa Mica Tulip">
+              </a>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Hộp Hoa Mica</span>
+              <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Hộp Hoa Mica Tulip Pink Charm Trong Suốt</a></h3>
+              <div class="product-price-row">
+                <span class="price-current">850.000₫</span>
+              </div>
+              <div class="product-actions">
+                <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">Xem chi tiết</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="product-card">
+            <div class="product-thumb">
+              <a th:href="@{/product-detail}" href="/product-detail">
+                <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=600&auto=format&fit=crop" alt="Giỏ Hoa Sweet Pastel">
+              </a>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Giỏ Hoa Tươi</span>
+              <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Giỏ Hoa Sweet Pastel - Cẩm Tú Cầu Xanh & Hồng Kem</a></h3>
+              <div class="product-price-row">
+                <span class="price-current">680.000₫</span>
+              </div>
+              <div class="product-actions">
+                <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">Xem chi tiết</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="product-card">
+            <div class="product-thumb">
+              <a th:href="@{/product-detail}" href="/product-detail">
+                <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?q=80&w=600&auto=format&fit=crop" alt="Bó Cúc Tana Mộc Mạc">
+              </a>
+            </div>
+            <div class="product-body">
+              <span class="product-category">Bó Hoa Tươi</span>
+              <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Bó Hoa Cúc Tana Mộc Mạc - Phong Cách Hàn Quốc</a></h3>
+              <div class="product-price-row">
+                <span class="price-current">390.000₫</span>
+              </div>
+              <div class="product-actions">
+                <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">Xem chi tiết</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  </div>
+</body>
+</html>

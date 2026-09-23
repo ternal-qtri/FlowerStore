@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+  <aside th:fragment="sidebar" class="admin-sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo-icon">
+        <svg style="width:20px;height:20px;" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+      </div>
+      <div class="sidebar-logo-text">
+        <span class="sidebar-brand">VƯỜN HOA TƯƠI</span>
+        <span class="sidebar-sub">Admin Control Center</span>
+      </div>
+    </div>
+
+    <div class="sidebar-menu-wrap">
+      <div class="menu-group-title">Báo Cáo & Tổng Quan</div>
+      <ul class="sidebar-nav">
+        <li th:classappend="${currentUri == '/admin' or currentUri == '/admin/dashboard' ? 'active' : ''}">
+          <a th:href="@{/admin/dashboard}">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <span>Tổng Quan (Dashboard)</span>
+          </a>
+        </li>
+        <li th:classappend="${currentUri == '/admin/revenue' ? 'active' : ''}">
+          <a th:href="@{/admin/revenue}">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            <span>Báo Cáo Doanh Thu</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="menu-group-title">Quản Lý Sản Phẩm</div>
+      <ul class="sidebar-nav">
+        <li th:classappend="${currentUri == '/admin/categories' ? 'active' : ''}">
+          <a th:href="@{/admin/categories}">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            <span>Danh Mục Hoa</span>
+          </a>
+        </li>
+        <li th:classappend="${currentUri == '/admin/products' or currentUri == '/admin/products/form' ? 'active' : ''}">
+          <a th:href="@{/admin/products}">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            <span>Sản Phẩm Hoa Tươi</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="menu-group-title">Bán Hàng & Khách Hàng</div>
+      <ul class="sidebar-nav">
+        <li th:classappend="${currentUri == '/admin/orders' ? 'active' : ''}">
+          <a th:href="@{/admin/orders}">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            <span>Quản Lý Đơn Hàng</span>
+          </a>
+        </li>
+        <li th:classappend="${currentUri == '/admin/accounts' or currentUri == '/admin/accounts/form' ? 'active' : ''}">
+          <a th:href="@{/admin/accounts}">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <span>Tài Khoản Người Dùng</span>
+          </a>
+        </li>
+        <li th:classappend="${currentUri == '/admin/vip-customers' ? 'active' : ''}">
+          <a th:href="@{/admin/vip-customers}">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            <span>Khách Hàng VIP</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <a th:href="@{/}" class="btn-back-store">
+        <svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        <span>Xem Cửa Hàng (Store)</span>
+      </a>
+    </div>
+  </aside>
+</body>
+</html>

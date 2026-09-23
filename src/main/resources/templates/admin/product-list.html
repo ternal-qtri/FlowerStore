@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+  <title>Danh Sách Sản Phẩm - Vườn Hoa Tươi Admin</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<div class="admin-content">
+        <div class="page-header-row">
+          <div class="page-header-text">
+            <h2>Danh Sách Sản Phẩm (128)</h2>
+            <p>Quản lý các mẫu hoa bó, hoa giỏ, hộp mica và kệ hoa sự kiện trong hệ thống.</p>
+          </div>
+          <div>
+            <a th:href="@{/admin/products/form}" href="/admin/products/form" class="btn btn-primary">
+              <svg style="width:18px;height:18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+              Thêm Mẫu Hoa Mới
+            </a>
+          </div>
+        </div>
+
+        <!-- FILTER TOOLBAR -->
+        <div class="card-block">
+          <div class="card-header-flex">
+            <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; flex:1;">
+              <input type="text" class="form-control table-search-input" style="max-width:280px;" placeholder="Tìm tên hoa, mã SKU...">
+              
+              <select class="form-control" style="max-width:200px;">
+                <option value="">Tất Cả Danh Mục</option>
+                <option value="tulip">Bó Hoa Tulip</option>
+                <option value="birthday">Hoa Sinh Nhật</option>
+                <option value="opening">Hoa Khai Trương</option>
+                <option value="mica">Hộp Hoa Mica</option>
+              </select>
+
+              <select class="form-control" style="max-width:180px;">
+                <option value="">Trạng Thái Kho</option>
+                <option value="in_stock">Còn Hàng</option>
+                <option value="low_stock">Sắp Hết</option>
+                <option value="out_of_stock">Hết Hàng</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table filterable-table">
+              <thead>
+                <tr>
+                  <th>Sản Phẩm & Mã SKU</th>
+                  <th>Danh Mục</th>
+                  <th>Giá Niêm Yết</th>
+                  <th>Huy Hiệu</th>
+                  <th>Tồn Kho</th>
+                  <th>Trạng Thái</th>
+                  <th>Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                      <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=120&auto=format&fit=crop" style="width:48px;height:48px;border-radius:6px;object-fit:cover;" alt="Tulip White July">
+                      <div>
+                        <div style="font-weight:600; color:#313131;">Bó Hoa Tulip White July</div>
+                        <div style="font-size:0.78rem; color:#777777;">SKU: VHT-TLP-001</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Bó Hoa Tươi</td>
+                  <td>
+                    <strong style="color:var(--color-accent);">650.000₫</strong>
+                    <div style="font-size:0.78rem; color:#9E9E9E; text-decoration:line-through;">750.000₫</div>
+                  </td>
+                  <td>
+                    <span style="background:var(--color-accent); color:#FFF; font-size:0.72rem; padding:2px 6px; border-radius:4px; font-weight:700;">SALE -13%</span>
+                    <span style="background:#27AE60; color:#FFF; font-size:0.72rem; padding:2px 6px; border-radius:4px; font-weight:700;">Giao 60p</span>
+                  </td>
+                  <td><span style="color:#27AE60; font-weight:600;">32 cành</span></td>
+                  <td><span class="badge-status completed">Đang bán</span></td>
+                  <td>
+                    <a th:href="@{/admin/products/form}" href="/admin/products/form" class="btn btn-outline btn-sm btn-icon" title="Sửa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></a>
+                    <button class="btn btn-danger btn-sm btn-icon" title="Xóa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                      <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=120&auto=format&fit=crop" style="width:48px;height:48px;border-radius:6px;object-fit:cover;" alt="Sophia Mix">
+                      <div>
+                        <div style="font-weight:600; color:#313131;">Bó Hoa Sophia Mix Pink Style</div>
+                        <div style="font-size:0.78rem; color:#777777;">SKU: VHT-ROS-012</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Hoa Sinh Nhật</td>
+                  <td>
+                    <strong style="color:var(--color-accent);">480.000₫</strong>
+                    <div style="font-size:0.78rem; color:#9E9E9E; text-decoration:line-through;">550.000₫</div>
+                  </td>
+                  <td>
+                    <span style="background:#E67E22; color:#FFF; font-size:0.72rem; padding:2px 6px; border-radius:4px; font-weight:700;">HOT</span>
+                  </td>
+                  <td><span style="color:#27AE60; font-weight:600;">18 cành</span></td>
+                  <td><span class="badge-status completed">Đang bán</span></td>
+                  <td>
+                    <a th:href="@{/admin/products/form}" href="/admin/products/form" class="btn btn-outline btn-sm btn-icon" title="Sửa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></a>
+                    <button class="btn btn-danger btn-sm btn-icon" title="Xóa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                      <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=120&auto=format&fit=crop" style="width:48px;height:48px;border-radius:6px;object-fit:cover;" alt="Hộp mica">
+                      <div>
+                        <div style="font-weight:600; color:#313131;">Hộp Hoa Mica Tulip Pink Charm</div>
+                        <div style="font-size:0.78rem; color:#777777;">SKU: VHT-MCA-005</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>Hộp Hoa Mica</td>
+                  <td>
+                    <strong style="color:var(--color-accent);">850.000₫</strong>
+                  </td>
+                  <td>
+                    <span style="background:var(--color-primary); color:#FFF; font-size:0.72rem; padding:2px 6px; border-radius:4px; font-weight:700;">MỚI</span>
+                  </td>
+                  <td><span style="color:#E67E22; font-weight:600;">5 hộp (Sắp hết)</span></td>
+                  <td><span class="badge-status completed">Đang bán</span></td>
+                  <td>
+                    <a th:href="@{/admin/products/form}" href="/admin/products/form" class="btn btn-outline btn-sm btn-icon" title="Sửa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></a>
+                    <button class="btn btn-danger btn-sm btn-icon" title="Xóa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</body>
+</html>

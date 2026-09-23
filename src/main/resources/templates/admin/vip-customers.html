@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout}">
+<head>
+  <title>Khách Hàng VIP - Vườn Hoa Tươi Admin</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<div class="admin-content">
+        <div class="page-header-row">
+          <div class="page-header-text">
+            <h2>Chương Trình Khách Hàng VIP</h2>
+            <p>Danh sách các đối tác doanh nghiệp và khách hàng cá nhân có tích lũy chi tiêu lớn.</p>
+          </div>
+        </div>
+
+        <!-- STAT CARDS -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Hạng Platinum ( > 20 triệu)</span>
+              <span class="stat-value">12 Khách</span>
+              <span class="stat-change up">Giảm 15% tất cả đơn</span>
+            </div>
+            <div class="stat-icon purple">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Hạng Gold ( 10 - 20 triệu)</span>
+              <span class="stat-value">28 Khách</span>
+              <span class="stat-change up">Giảm 10% tất cả đơn</span>
+            </div>
+            <div class="stat-icon gold">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Hạng Silver ( 5 - 10 triệu)</span>
+              <span class="stat-value">45 Khách</span>
+              <span class="stat-change up">Giảm 5% tất cả đơn</span>
+            </div>
+            <div class="stat-icon blue">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIP TABLE -->
+        <div class="card-block">
+          <div class="card-header-flex">
+            <input type="text" class="form-control table-search-input" style="max-width:300px;" placeholder="Tìm tên khách hàng VIP, SĐT...">
+          </div>
+
+          <div class="table-responsive">
+            <table class="admin-table filterable-table">
+              <thead>
+                <tr>
+                  <th>Khách Hàng VIP</th>
+                  <th>Hạng Thành Viên</th>
+                  <th>Ưu Đãi Được Hưởng</th>
+                  <th>Số Đơn Đã Đặt</th>
+                  <th>Tổng Chi Tiêu Tích Lũy</th>
+                  <th>Đơn Gần Nhất</th>
+                  <th>Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop" style="width:44px;height:44px;border-radius:50%;object-fit:cover;" alt="Anh Tuấn Anh">
+                      <div>
+                        <div style="font-weight:600; color:#313131;">Anh Tuấn Anh</div>
+                        <div style="font-size:0.78rem; color:#777777;">Cty Truyền Thông Hoàng Gia (0907 888 999)</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span style="background:#7B61FF; color:#FFF; padding:4px 10px; border-radius:20px; font-size:0.75rem; font-weight:700;">💎 Platinum VIP</span></td>
+                  <td><strong style="color:var(--color-primary-dark);">Giảm 15% + Freeship</strong></td>
+                  <td><strong>34 đơn</strong></td>
+                  <td><strong style="color:var(--color-accent); font-size:1.05rem;">32.500.000₫</strong></td>
+                  <td>20/09/2026</td>
+                  <td>
+                    <a th:href="@{/admin/orders}" href="/admin/orders" class="btn btn-outline btn-sm">Xem Lịch Sử</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=120&auto=format&fit=crop" style="width:44px;height:44px;border-radius:50%;object-fit:cover;" alt="Mai Phương">
+                      <div>
+                        <div style="font-weight:600; color:#313131;">Chị Mai Phương</div>
+                        <div style="font-size:0.78rem; color:#777777;">Khách Hàng Cá Nhân (0918 555 777)</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span style="background:#E69500; color:#FFF; padding:4px 10px; border-radius:20px; font-size:0.75rem; font-weight:700;">🥇 Gold VIP</span></td>
+                  <td><strong style="color:var(--color-primary-dark);">Giảm 10% + Tặng Thiệp</strong></td>
+                  <td><strong>14 đơn</strong></td>
+                  <td><strong style="color:var(--color-accent); font-size:1.05rem;">12.800.000₫</strong></td>
+                  <td>18/09/2026</td>
+                  <td>
+                    <a th:href="@{/admin/orders}" href="/admin/orders" class="btn btn-outline btn-sm">Xem Lịch Sử</a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div style="display:flex; align-items:center; gap:12px;">
+                      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=120&auto=format&fit=crop" style="width:44px;height:44px;border-radius:50%;object-fit:cover;" alt="Hoàng Yến">
+                      <div>
+                        <div style="font-weight:600; color:#313131;">Chị Hoàng Yến</div>
+                        <div style="font-size:0.78rem; color:#777777;">Khách Hàng Thường Xuyên (0934 123 999)</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span style="background:#2F80ED; color:#FFF; padding:4px 10px; border-radius:20px; font-size:0.75rem; font-weight:700;">🥈 Silver VIP</span></td>
+                  <td><strong style="color:var(--color-primary-dark);">Giảm 5%</strong></td>
+                  <td><strong>8 đơn</strong></td>
+                  <td><strong style="color:var(--color-accent); font-size:1.05rem;">6.450.000₫</strong></td>
+                  <td>12/09/2026</td>
+                  <td>
+                    <a th:href="@{/admin/orders}" href="/admin/orders" class="btn btn-outline btn-sm">Xem Lịch Sử</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
+<head>
+  <title>403 - Khu Vực Bị Cấm Truy Cập - Vườn Hoa Tươi</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<!-- ================= BREADCRUMB ================= -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" href="/" style="display: inline-flex; align-items: center; gap: 4px;">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="15" height="15"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <span>Trang Chủ</span>
+          </a>
+        </li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item active">Lỗi 403 - Khu Vực Cấm Truy Cập</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= ERROR 403 SECTION ================= -->
+  <main class="error-page-section">
+    <div class="container">
+      <div class="error-card-wide">
+        
+        <!-- Left: Illustration -->
+        <div class="error-illustration-wrap">
+          <img th:src="@{/images/errors/403.jpg}" src="/images/errors/403.jpg" alt="Minh họa Lỗi 403 Forbidden Access">
+        </div>
+
+        <!-- Right: Text Content & Actions -->
+        <div class="error-content-side">
+          <span class="error-badge-tag">Lỗi 403 - Forbidden</span>
+          <h1 class="error-code-title">Rất Tiếc! Khu Vực Này Đã Bị Khóa Quyền Truy Cập</h1>
+          <p class="error-desc">
+            Nhà kính vườn hoa tươi khu vực này chỉ dành riêng cho Ban Quản Trị hoặc yêu cầu cấp quyền truy cập đặc biệt. Bạn không thể truy cập tài nguyên này với quyền hạn tài khoản hiện tại.
+          </p>
+
+          <div class="error-actions">
+            <a th:href="@{/}" href="/" class="btn btn-primary" style="padding: 14px 28px; font-weight: 600; font-size: 0.95rem;">VỀ TRANG CHỦ</a>
+            <a th:href="@{/login}" href="/login" class="btn btn-outline" style="padding: 14px 28px; font-weight: 500; font-size: 0.95rem;">ĐĂNG NHẬP TÀI KHOẢN KHÁC</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  </div>
+</body>
+</html>

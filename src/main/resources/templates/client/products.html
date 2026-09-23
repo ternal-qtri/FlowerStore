@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
+<head>
+  <title>Danh Mục Tất Cả Mẫu Hoa Tươi - Vườn Hoa Tươi</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<!-- ================= BREADCRUMB & SHOP HEADER ================= -->
+  <div class="breadcrumb-wrap">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a th:href="@{/}" href="/">Trang Chủ</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li style="color: var(--color-text-main); font-weight: 500;">Danh Mục Mẫu Hoa Tươi</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="shop-page-header">
+    <div class="container">
+      <h1 class="shop-page-title">Bộ Sưu Tập Mẫu Hoa Tươi</h1>
+      <p class="shop-page-desc">Tuyển chọn hơn 200+ mẫu bó hoa tươi, giỏ hoa nghệ thuật và hộp hoa mica nhập khẩu cao cấp. Giao hỏa tốc 60-90 phút tại TP.HCM, tặng kèm thiệp thiết kế riêng và chụp ảnh duyệt trước khi giao.</p>
+    </div>
+  </div>
+
+  <!-- ================= SHOP LAYOUT (SIDEBAR + PRODUCT CATALOG) ================= -->
+  <main class="shop-container">
+    <div class="container">
+      <div class="shop-layout">
+
+        <!-- Sidebar Lọc (Filter Sidebar) -->
+        <aside class="shop-sidebar">
+
+          <!-- Lọc Theo Danh Mục -->
+          <div class="filter-box">
+            <h3 class="filter-title">Danh Mục Hoa</h3>
+            <ul class="filter-list">
+              <li class="filter-item active">
+                <span>Tất Cả Mẫu Hoa</span>
+                <span class="filter-count">240</span>
+              </li>
+              <li class="filter-item">
+                <span>Hoa Sinh Nhật</span>
+                <span class="filter-count">85</span>
+              </li>
+              <li class="filter-item">
+                <span>Hoa Khai Trương</span>
+                <span class="filter-count">42</span>
+              </li>
+              <li class="filter-item">
+                <span>Bó Hoa Tulip Tươi</span>
+                <span class="filter-count">28</span>
+              </li>
+              <li class="filter-item">
+                <span>Giỏ Hoa Sang Trọng</span>
+                <span class="filter-count">36</span>
+              </li>
+              <li class="filter-item">
+                <span>Hộp Hoa Mica</span>
+                <span class="filter-count">24</span>
+              </li>
+              <li class="filter-item">
+                <span>Kệ Hoa Sự Kiện</span>
+                <span class="filter-count">18</span>
+              </li>
+              <li class="filter-item">
+                <span>Hoa Chia Buồn</span>
+                <span class="filter-count">12</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Lọc Theo Mức Giá -->
+          <div class="filter-box">
+            <h3 class="filter-title">Khoảng Giá (VNĐ)</h3>
+            <ul class="filter-list">
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox" checked>
+                  <span>Tất cả mức giá</span>
+                </label>
+              </li>
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>Dưới 500.000₫</span>
+                </label>
+              </li>
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>500.000₫ - 1.000.000₫</span>
+                </label>
+              </li>
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>1.000.000₫ - 2.000.000₫</span>
+                </label>
+              </li>
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>Trên 2.000.000₫</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Lọc Theo Loài Hoa -->
+          <div class="filter-box">
+            <h3 class="filter-title">Loại Hoa Chủ Đạo</h3>
+            <ul class="filter-list">
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>Hoa Hồng (Rose)</span>
+                </label>
+              </li>
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>Hoa Tulip Hà Lan</span>
+                </label>
+              </li>
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>Cẩm Tú Cầu</span>
+                </label>
+              </li>
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>Hướng Dương</span>
+                </label>
+              </li>
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>Cúc Tana</span>
+                </label>
+              </li>
+              <li class="filter-item">
+                <label class="checkbox-label" style="font-size: 0.88rem;">
+                  <input type="checkbox">
+                  <span>Lan Hồ Điệp</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Button Lọc -->
+          <button type="button" class="btn btn-primary btn-full">Áp Dụng Bộ Lọc</button>
+
+        </aside>
+
+        <!-- Product Catalog Area -->
+        <section class="shop-main">
+
+          <!-- Shop Toolbar -->
+          <div class="shop-toolbar">
+            <div class="result-count">
+              Hiển thị <strong>12</strong> trên tổng <strong>240</strong> mẫu hoa tươi
+            </div>
+            <div class="sort-wrap">
+              <label for="sort-select">Sắp xếp theo:</label>
+              <select id="sort-select" class="sort-select">
+                <option value="popular">Bán chạy nhất</option>
+                <option value="newest" selected>Mẫu mới nhất</option>
+                <option value="price-asc">Giá: Thấp đến Cao</option>
+                <option value="price-desc">Giá: Cao đến Thấp</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Lưới 12 Sản phẩm -->
+          <div class="shop-product-grid">
+
+            <!-- Sản phẩm 1 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-sale">-13%</span>
+                  <span class="badge badge-express">Giao 60p</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600&auto=format&fit=crop" alt="Bó Hoa Tulip White July">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Bó Hoa Tươi</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Bó Hoa Tulip White July - Trắng Tinh Khôi</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">650.000₫</span>
+                  <span class="price-old">750.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 2 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-hot">Hot</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=600&auto=format&fit=crop" alt="Bó Hoa Sophia Mix White Style">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Hoa Sinh Nhật</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Bó Hoa Sophia Mix - Hồng Pastel & Cúc Tana</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">480.000₫</span>
+                  <span class="price-old">550.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 3 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-new">Mới</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=600&auto=format&fit=crop" alt="Hộp Hoa Mica Tulip White Beauty">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Hộp Hoa Mica</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Hộp Hoa Mica Tulip Pink Charm Trong Suốt</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">850.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 4 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-express">Giao 60p</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=600&auto=format&fit=crop" alt="Giỏ Hoa Khai Trương Phú Quý">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Hoa Khai Trương</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Giỏ Hoa Khai Trương Phú Quý - Hướng Dương & Hồng Cam</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">1.250.000₫</span>
+                  <span class="price-old">1.400.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 5 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-sale">-15%</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?q=80&w=600&auto=format&fit=crop" alt="Bó Hoa Tốt Nghiệp Nắng Hạ">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Hoa Tốt Nghiệp</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Bó Hoa Tốt Nghiệp Nắng Hạ - 3 Bông Hướng Dương & Baby</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">350.000₫</span>
+                  <span class="price-old">410.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 6 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-new">Mới</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?q=80&w=600&auto=format&fit=crop" alt="Giỏ Hoa Sweet Pastel">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Giỏ Hoa Tươi</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Giỏ Hoa Sweet Pastel - Cẩm Tú Cầu Xanh & Hồng Kem</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">680.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 7 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?q=80&w=600&auto=format&fit=crop" alt="Bó Hoa Cúc Tana Mộc Mạc">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Bó Hoa Tươi</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Bó Hoa Cúc Tana Mộc Mạc - Phong Cách Hàn Quốc</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">390.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 8 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-hot">VIP</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop" alt="Kệ Hoa Khai Trương Hồng Phát">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Kệ Hoa Sự Kiện</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Kệ Hoa Khai Trương Hồng Phát - Lan Hồ Điệp & Hồng Đỏ</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">1.850.000₫</span>
+                  <span class="price-old">2.100.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 9 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-hot">Hot</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop" alt="Bó Hoa Hồng Đỏ Passion Love">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Hoa Tình Yêu</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Bó Hoa Hồng Đỏ Passion Love - 19 Đóa Tình Yêu</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">520.000₫</span>
+                  <span class="price-old">600.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 10 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-hot">VIP</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=600&auto=format&fit=crop" alt="Chậu Lan Hồ Điệp Trắng Đột Biến">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Lan Hồ Điệp</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Chậu Lan Hồ Điệp Trắng Đột Biến - 5 Cành Quý Phái</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">2.500.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 11 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-new">Mới</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=600&auto=format&fit=crop" alt="Hộp Hoa Mica Baby Cầu Vồng">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Hộp Hoa Mica</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Hộp Hoa Mica Baby Cầu Vồng Nhuộm Màu Tự Nhiên</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">720.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sản phẩm 12 -->
+            <div class="product-card">
+              <div class="product-thumb">
+                <div class="badge-stack">
+                  <span class="badge badge-express">Giao 60p</span>
+                </div>
+                <a th:href="@{/product-detail}" href="/product-detail">
+                  <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=600&auto=format&fit=crop" alt="Giỏ Hoa Hướng Dương Rạng Rỡ">
+                </a>
+              </div>
+              <div class="product-body">
+                <span class="product-category">Giỏ Hoa Tươi</span>
+                <h3 class="product-title"><a th:href="@{/product-detail}" href="/product-detail">Giỏ Hoa Hướng Dương Rạng Rỡ - Chúc Mừng Thành Công</a></h3>
+                <div class="product-price-row">
+                  <span class="price-current">590.000₫</span>
+                  <span class="price-old">680.000₫</span>
+                </div>
+                <div class="product-actions">
+                  <a th:href="@{/product-detail}" href="/product-detail" class="btn-add-cart">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    Xem chi tiết & Đặt hoa
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">4</a>
+            <a href="#" class="page-link" title="Trang tiếp">
+              <svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  </div>
+</body>
+</html>

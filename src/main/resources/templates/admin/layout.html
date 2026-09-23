@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title layout:title-pattern="$CONTENT_TITLE - Vườn Hoa Tươi Admin">Quản Trị - Vườn Hoa Tươi Admin</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://vuonhoatuoi.vn/wp-content/uploads/2025/04/Favicon-Vuonhoatuoi-png-100x100.webp" type="image/webp">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Noto+Serif+Display:ital,wght@0,400;0,500;0,600;1,400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Admin CSS -->
+  <link rel="stylesheet" th:href="@{/css/admin.css}">
+
+  <!-- Extra CSS Fragment -->
+  <th:block layout:fragment="page-css"></th:block>
+</head>
+<body>
+
+  <div class="admin-wrapper">
+    <!-- Sidebar -->
+    <aside th:replace="~{admin/fragments/sidebar :: sidebar}"></aside>
+
+    <!-- Main Area -->
+    <main class="admin-main">
+      <!-- Topbar -->
+      <header th:replace="~{admin/fragments/topbar :: topbar}"></header>
+
+      <!-- Content -->
+      <th:block layout:fragment="content">
+        <!-- Nội dung các trang con admin -->
+      </th:block>
+    </main>
+  </div>
+
+  <!-- Admin JS -->
+  <script th:src="@{/js/admin.js}"></script>
+
+  <!-- Extra JS Fragment -->
+  <th:block layout:fragment="page-js"></th:block>
+</body>
+</html>

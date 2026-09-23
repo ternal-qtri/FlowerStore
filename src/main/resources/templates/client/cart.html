@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
+<head>
+  <title>Giỏ Hàng Của Bạn - Vườn Hoa Tươi HCM</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<!-- ================= BREADCRUMB ================= -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li class="breadcrumb-item"><a th:href="@{/}" href="/">Trang chủ</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item active">Giỏ hàng của bạn</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= CART CONTENT ================= -->
+  <main class="cart-section">
+    <div class="container">
+      
+      <div style="margin-bottom: 28px;">
+        <h1 style="font-family: var(--font-heading); font-size: 2rem; color: var(--color-text-main); font-weight: 600;">Giỏ Hàng Của Bạn</h1>
+        <p style="font-size: 0.92rem; color: var(--color-text-muted); margin-top: 4px;">Bạn đang có <strong>3 sản phẩm</strong> trong giỏ hàng</p>
+      </div>
+
+      <div class="cart-layout">
+        
+        <!-- Left: Cart Items Table -->
+        <div class="cart-main-content">
+          <div class="cart-table-wrap">
+            <table class="cart-table">
+              <thead>
+                <tr>
+                  <th style="width: 45%;">Sản phẩm</th>
+                  <th style="width: 18%;">Đơn giá</th>
+                  <th style="width: 18%;">Số lượng</th>
+                  <th style="width: 14%;">Thành tiền</th>
+                  <th style="width: 5%; text-align: center;"></th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <!-- Cart Item 1 -->
+                <tr>
+                  <td>
+                    <div class="cart-item-flex">
+                      <div class="cart-item-thumb">
+                        <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=300&auto=format&fit=crop" alt="Bó Hoa Tulip White July">
+                      </div>
+                      <div>
+                        <a th:href="@{/product-detail}" href="/product-detail" class="cart-item-title">Bó Hoa Tulip White July - Trắng Tinh Khôi</a>
+                        <div class="cart-item-meta">Size: Tiêu chuẩn | Kèm thiệp chúc mừng</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span style="font-weight: 500; color: var(--color-text-main);">850.000đ</span>
+                  </td>
+                  <td>
+                    <div class="qty-selector" style="transform: scale(0.9); transform-origin: left center;">
+                      <button type="button" class="qty-btn" aria-label="Giảm số lượng">-</button>
+                      <input type="text" value="1" class="qty-input" readonly>
+                      <button type="button" class="qty-btn" aria-label="Tăng số lượng">+</button>
+                    </div>
+                  </td>
+                  <td>
+                    <span style="font-weight: 700; color: var(--color-primary-dark);">850.000đ</span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button class="btn-remove-item" title="Xóa sản phẩm khỏi giỏ hàng">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Cart Item 2 -->
+                <tr>
+                  <td>
+                    <div class="cart-item-flex">
+                      <div class="cart-item-thumb">
+                        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?q=80&w=300&auto=format&fit=crop" alt="Lẵng Hoa Hướng Dương Bright Day">
+                      </div>
+                      <div>
+                        <a th:href="@{/product-detail}" href="/product-detail" class="cart-item-title">Lẵng Hoa Hướng Dương Bright Day</a>
+                        <div class="cart-item-meta">Size: Lớn (+150K) | Ruy băng vàng satin</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span style="font-weight: 500; color: var(--color-text-main);">1.100.000đ</span>
+                  </td>
+                  <td>
+                    <div class="qty-selector" style="transform: scale(0.9); transform-origin: left center;">
+                      <button type="button" class="qty-btn" aria-label="Giảm số lượng">-</button>
+                      <input type="text" value="1" class="qty-input" readonly>
+                      <button type="button" class="qty-btn" aria-label="Tăng số lượng">+</button>
+                    </div>
+                  </td>
+                  <td>
+                    <span style="font-weight: 700; color: var(--color-primary-dark);">1.100.000đ</span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button class="btn-remove-item" title="Xóa sản phẩm khỏi giỏ hàng">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Cart Item 3 -->
+                <tr>
+                  <td>
+                    <div class="cart-item-flex">
+                      <div class="cart-item-thumb">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=300&auto=format&fit=crop" alt="Hộp Hoa Hồng Ecuador Velvet Red">
+                      </div>
+                      <div>
+                        <a th:href="@{/product-detail}" href="/product-detail" class="cart-item-title">Hộp Hoa Hồng Ecuador Velvet Red</a>
+                        <div class="cart-item-meta">Size: Tiêu chuẩn | Hộp quà đen cao cấp</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <span style="font-weight: 500; color: var(--color-text-main);">680.000đ</span>
+                  </td>
+                  <td>
+                    <div class="qty-selector" style="transform: scale(0.9); transform-origin: left center;">
+                      <button type="button" class="qty-btn" aria-label="Giảm số lượng">-</button>
+                      <input type="text" value="2" class="qty-input" readonly>
+                      <button type="button" class="qty-btn" aria-label="Tăng số lượng">+</button>
+                    </div>
+                  </td>
+                  <td>
+                    <span style="font-weight: 700; color: var(--color-primary-dark);">1.360.000đ</span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button class="btn-remove-item" title="Xóa sản phẩm khỏi giỏ hàng">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    </button>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="cart-bottom-actions">
+            <a th:href="@{/products}" href="/products" class="btn btn-outline" style="font-size: 0.88rem; display: inline-flex; align-items: center; gap: 8px;">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+              Tiếp Tục Mua Hàng
+            </a>
+            <div style="display: flex; gap: 10px;">
+              <button type="button" class="btn btn-outline" style="font-size: 0.88rem;">Cập Nhật Giỏ Hàng</button>
+              <button type="button" class="btn" style="background-color: transparent; color: var(--color-accent); border: 1px solid var(--color-border); font-size: 0.88rem;">Xóa Tất Cả</button>
+            </div>
+          </div>
+
+          <!-- Order Note -->
+          <div style="margin-top: 28px; background-color: #FFFFFF; padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
+            <label for="cart-note" style="display: block; font-size: 0.9rem; font-weight: 600; color: var(--color-text-main); margin-bottom: 8px;">
+              Ghi chú cho cửa hàng (Ví dụ: Thời gian giao hoa mong muốn, lời chúc thiệp...):
+            </label>
+            <textarea id="cart-note" rows="3" class="form-input" style="height: auto; padding: 12px;" placeholder="Nhập ghi chú hoặc yêu cầu đặc biệt của bạn tại đây..."></textarea>
+          </div>
+        </div>
+
+        <!-- Right: Order Summary Card -->
+        <div class="cart-sidebar">
+          <div class="cart-summary-card">
+            <h2 class="summary-title">Tóm Tắt Đơn Hàng</h2>
+
+            <div class="summary-row">
+              <span>Tạm tính (4 món):</span>
+              <span style="font-weight: 600; color: var(--color-text-main);">3.310.000đ</span>
+            </div>
+
+            <div class="summary-row" style="color: var(--color-primary-dark);">
+              <span>Giảm giá (Mã: <strong>VUONHOATUOI10</strong>):</span>
+              <span style="font-weight: 600;">-100.000đ</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Phí vận chuyển:</span>
+              <span style="font-weight: 500; color: var(--color-primary);">Miễn phí (Nội thành)</span>
+            </div>
+
+            <div class="coupon-box">
+              <input type="text" class="coupon-input" value="VUONHOATUOI10" placeholder="Mã giảm giá...">
+              <button type="button" class="btn btn-primary" style="padding: 0 16px; font-size: 0.85rem; white-space: nowrap;">Áp Dụng</button>
+            </div>
+
+            <div class="summary-row total">
+              <span>Tổng thanh toán:</span>
+              <div style="text-align: right;">
+                <div class="total-price">3.210.000đ</div>
+                <div style="font-size: 0.75rem; font-weight: 400; color: var(--color-text-muted); margin-top: 2px;">(Đã bao gồm VAT & Miễn phí giao hoa)</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 24px;">
+              <a th:href="@{/checkout}" href="/checkout" class="btn btn-accent btn-full" style="padding: 14px; font-size: 1.05rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <span>TIẾN HÀNH THANH TOÁN</span>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+
+            <div class="cart-trust-notes">
+              <div class="cart-trust-note-item">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="color: var(--color-primary); flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Freeship hỏa tốc nội thành TP.HCM</span>
+              </div>
+              <div class="cart-trust-note-item">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="color: var(--color-primary); flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Tặng kèm thiệp mừng / banner cao cấp</span>
+              </div>
+              <div class="cart-trust-note-item">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="16" height="16" style="color: var(--color-primary); flex-shrink: 0;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span>Chụp hình sản phẩm thực tế duyệt trước khi giao</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  </div>
+</body>
+</html>

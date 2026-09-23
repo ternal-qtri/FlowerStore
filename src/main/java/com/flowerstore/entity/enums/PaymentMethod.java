@@ -1,0 +1,16 @@
+package com.flowerstore.entity.enums;
+
+import lombok.Getter;
+
+@Getter
+public enum PaymentMethod {
+    COD("Thanh toán khi nhận (COD)"),
+    VNPAY("VNPAY"),
+    MOMO("MOMO");
+
+    private final String displayName;
+
+    PaymentMethod(String displayName) {
+        this.displayName = displayName;
+    }
+}

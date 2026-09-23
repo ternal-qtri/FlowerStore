@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
+<head>
+  <title>Đăng Nhập Tài Khoản - Vườn Hoa Tươi</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<!-- ================= BREADCRUMB ================= -->
+  <div class="breadcrumb-wrap">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li><a th:href="@{/}" href="/">Trang Chủ</a></li>
+        <li class="breadcrumb-separator">/</li>
+        <li style="color: var(--color-text-main); font-weight: 500;">Đăng Nhập</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= AUTH SECTION (LOGIN FORM) ================= -->
+  <section class="auth-section">
+    <div class="container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <span class="auth-subtitle">Chào mừng bạn trở lại</span>
+          <h1 class="auth-title">Đăng Nhập Tài Khoản</h1>
+        </div>
+
+        <form th:action="@{/profile}" action="/profile" method="GET">
+          <!-- Input Email/SĐT -->
+          <div class="form-group">
+            <label class="form-label" for="login-identity">Email hoặc Số điện thoại <span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="login-identity" class="form-input" placeholder="nhapemail@gmail.com hoặc 090xxxxxxx" value="khachhang@vuonhoatuoi.vn" required>
+            </div>
+          </div>
+
+          <!-- Input Mật khẩu -->
+          <div class="form-group">
+            <label class="form-label" for="login-password">Mật khẩu <span class="required">*</span></label>
+            <div class="input-wrap">
+              <input type="password" id="login-password" class="form-input" placeholder="Nhập mật khẩu..." value="12345678" required>
+              <button type="button" class="input-icon-right" aria-label="Hiện mật khẩu">
+                <svg style="width:20px;height:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Checkbox & Link Quên mật khẩu -->
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span>Ghi nhớ đăng nhập</span>
+            </label>
+            <a th:href="@{/forgot-password}" href="/forgot-password" class="forgot-link">Quên mật khẩu?</a>
+          </div>
+
+          <!-- Nút Đăng nhập -->
+          <button type="submit" class="btn btn-primary btn-full">Đăng Nhập Ngay</button>
+        </form>
+
+        <!-- Divider -->
+        <div class="auth-divider">
+          <span>Hoặc đăng nhập nhanh bằng</span>
+        </div>
+
+        <!-- Social Login buttons -->
+        <div class="social-auth">
+          <button type="button" class="btn-social">
+            <svg style="width:18px;height:18px;" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.4 8.9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.3 14.8c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.6 7.3C.6 9.3 0 11.6 0 14s.6 4.7 1.6 6.7l3.7-2.9z"/><path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.4-6.7-5.3L1.6 16c1.9 3.8 5.8 7 10.4 7z"/></svg>
+            Google
+          </button>
+          <button type="button" class="btn-social">
+            <svg style="width:18px;height:18px;" fill="#0068FF" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.03 2 11c0 2.87 1.5 5.43 3.86 7.02l-.96 3.56c-.1.38.27.71.63.57l4.02-1.62c.79.23 1.62.36 2.45.36 5.52 0 10-4.03 10-9s-4.48-9-10-9z"/></svg>
+            Tài Khoản Zalo
+          </button>
+        </div>
+
+        <!-- Footer Link sang Đăng ký -->
+        <div class="auth-footer-link">
+          Chưa có tài khoản? <a th:href="@{/register}" href="/register">Đăng ký ngay tại đây</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  </div>
+</body>
+</html>

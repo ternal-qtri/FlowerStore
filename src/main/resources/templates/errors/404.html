@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{client/layout}">
+<head>
+  <title>404 - Không Tìm Thấy Trang - Vườn Hoa Tươi</title>
+</head>
+<body>
+  <div layout:fragment="content">
+<!-- ================= BREADCRUMB ================= -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ul class="breadcrumb-list">
+        <li class="breadcrumb-item">
+          <a th:href="@{/}" href="/" style="display: inline-flex; align-items: center; gap: 4px;">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="15" height="15"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <span>Trang Chủ</span>
+          </a>
+        </li>
+        <li class="breadcrumb-separator">/</li>
+        <li class="breadcrumb-item active">Lỗi 404 - Không Tìm Thấy Trang</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= ERROR 404 SECTION ================= -->
+  <main class="error-page-section">
+    <div class="container">
+      <div class="error-card-wide">
+        
+        <!-- Left: Illustration -->
+        <div class="error-illustration-wrap">
+          <img th:src="@{/images/errors/404.jpg}" src="/images/errors/404.jpg" alt="Minh họa Lỗi 404 Page Not Found">
+        </div>
+
+        <!-- Right: Text Content & Actions -->
+        <div class="error-content-side">
+          <span class="error-badge-tag">Lỗi 404 - Not Found</span>
+          <h1 class="error-code-title">Rất Tiếc! Đóa Hoa Bạn Tìm Đã Bị Thất Lạc</h1>
+          <p class="error-desc">
+            Trang bạn đang truy cập không tồn tại hoặc đã được di chuyển sang danh mục hoa khác. Đừng lo lắng, hãy thử tìm kiếm mẫu hoa khác hoặc quay về trang chủ để chọn hoa tươi!
+          </p>
+
+          <!-- Quick Search Box -->
+          <form th:action="@{/products}" action="/products" method="GET" style="display: flex; gap: 8px; margin-bottom: 24px; max-width: 480px;">
+            <input type="text" name="q" class="form-input" placeholder="Tìm hoa tulip, hoa sinh nhật, lẵng hoa..." style="height: 44px;">
+            <button type="submit" class="btn btn-primary" style="padding: 0 18px; font-size: 0.88rem; white-space: nowrap;">Tìm Mẫu Hoa</button>
+          </form>
+
+          <div class="error-actions">
+            <a th:href="@{/}" href="/" class="btn btn-primary" style="padding: 14px 28px; font-weight: 600; font-size: 0.95rem;">VỀ TRANG CHỦ</a>
+            <a th:href="@{/products}" href="/products" class="btn btn-outline" style="padding: 14px 28px; font-weight: 500; font-size: 0.95rem;">XEM TẤT CẢ MẪU HOA</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  </div>
+</body>
+</html>
