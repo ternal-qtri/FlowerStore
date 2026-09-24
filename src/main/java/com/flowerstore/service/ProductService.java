@@ -14,4 +14,5 @@ public interface ProductService {
     void deleteById(Long id);
     boolean existsBySlug(String slug);
     boolean existsBySlugAndIdNot(String slug, Long id);
+    Page<Product> search(String keyword, Integer categoryId, int page, int size);
 }

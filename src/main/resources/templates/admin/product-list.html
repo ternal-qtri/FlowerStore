@@ -31,15 +31,19 @@
 
         <!-- FILTER TOOLBAR -->
         <div class="card-block">
-          <div class="card-header-flex">
+          <form th:action="@{/admin/products}" method="GET" class="card-header-flex">
             <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; flex:1;">
-              <input type="text" class="form-control table-search-input" style="max-width:280px;" placeholder="Tìm tên hoa, slug...">
+              <input type="text" name="keyword" th:value="${keyword}" class="form-control table-search-input" style="max-width:280px;" placeholder="Tìm tên hoa, slug...">
               
-              <select class="form-control" style="max-width:200px;">
+              <select name="categoryId" class="form-control" style="max-width:200px;" onchange="this.form.submit()">
                 <option value="">Tất Cả Danh Mục</option>
+                <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}" th:selected="${cat.id == categoryId}">Bó Hoa</option>
               </select>
+
+              <button type="submit" class="btn btn-primary btn-sm">Tìm kiếm</button>
+              <a th:if="${(keyword != null and !keyword.isBlank()) or categoryId != null}" th:href="@{/admin/products}" class="btn btn-outline btn-sm">Xóa bộ lọc</a>
             </div>
-          </div>
+          </form>
 
           <div class="table-responsive">
             <table class="admin-table filterable-table">
@@ -97,14 +101,14 @@
               Trang <strong th:text="${productPage.number + 1}">1</strong> / <span th:text="${productPage.totalPages}">1</span> (Tổng <span th:text="${productPage.totalElements}">0</span> sản phẩm)
             </div>
             <div style="display:flex; gap:6px;">
-              <a th:if="${productPage.hasPrevious()}" th:href="@{/admin/products(page=${productPage.number - 1})}" class="btn btn-outline btn-sm">Trước</a>
+              <a th:if="${productPage.hasPrevious()}" th:href="@{/admin/products(page=${productPage.number - 1}, keyword=${keyword}, categoryId=${categoryId})}" class="btn btn-outline btn-sm">Trước</a>
               <th:block th:each="i : ${#numbers.sequence(0, productPage.totalPages - 1)}">
-                <a th:href="@{/admin/products(page=${i})}"
+                <a th:href="@{/admin/products(page=${i}, keyword=${keyword}, categoryId=${categoryId})}"
                    th:text="${i + 1}"
                    th:classappend="${i == productPage.number} ? 'btn-primary' : 'btn-outline'"
                    class="btn btn-sm" style="min-width:32px; text-align:center;">1</a>
               </th:block>
-              <a th:if="${productPage.hasNext()}" th:href="@{/admin/products(page=${productPage.number + 1})}" class="btn btn-outline btn-sm">Sau</a>
+              <a th:if="${productPage.hasNext()}" th:href="@{/admin/products(page=${productPage.number + 1}, keyword=${keyword}, categoryId=${categoryId})}" class="btn btn-outline btn-sm">Sau</a>
             </div>
           </div>
         </div>

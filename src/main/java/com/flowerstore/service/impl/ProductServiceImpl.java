@@ -54,4 +54,11 @@ public class ProductServiceImpl implements ProductService {
     public boolean existsBySlugAndIdNot(String slug, Long id) {
         return productRepository.existsBySlugAndIdNot(slug, id);
     }
+
+    @Override
+    public Page<Product> search(String keyword, Integer categoryId, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"));
+        String kw = (keyword != null && !keyword.trim().isEmpty()) ? keyword.trim() : null;
+        return productRepository.search(kw, categoryId, pageable);
+    }
 }

@@ -5,6 +5,7 @@ import com.flowerstore.service.CategoryService;
 import com.flowerstore.service.ProductService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,8 +21,15 @@ public class AdminProductController {
     private final CategoryService categoryService;
 
     @GetMapping
-    public String list(@RequestParam(defaultValue = "0") int page, Model model) {
-        model.addAttribute("productPage", productService.findAll(page, 10));
+    public String list(@RequestParam(required = false) String keyword,
+                       @RequestParam(required = false) Integer categoryId,
+                       @RequestParam(defaultValue = "0") int page,
+                       Model model) {
+        Page<Product> productPage = productService.search(keyword, categoryId, page, 10);
+        model.addAttribute("productPage", productPage);
+        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("categoryId", categoryId);
         model.addAttribute("pageTitle", "Quản Lý Mẫu Hoa Tươi");
         return "admin/product-list";
     }

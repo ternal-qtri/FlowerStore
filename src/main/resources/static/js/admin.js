@@ -39,26 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 3. Search input live filter for tables
-  const tableSearchInput = document.querySelector('.table-search-input');
-  if (tableSearchInput) {
-    tableSearchInput.addEventListener('keyup', function () {
-      const query = this.value.toLowerCase().trim();
-      const targetTable = document.querySelector('.filterable-table');
-      if (targetTable) {
-        const rows = targetTable.querySelectorAll('tbody tr');
-        rows.forEach(row => {
-          const text = row.textContent.toLowerCase();
-          if (text.includes(query)) {
-            row.style.display = '';
-          } else {
-            row.style.display = 'none';
-          }
-        });
-      }
-    });
-  }
-
   // 4. Image Upload File Preview
   const imageInputs = document.querySelectorAll('.image-upload-input');
   imageInputs.forEach(input => {
