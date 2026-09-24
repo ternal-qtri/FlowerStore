@@ -28,17 +28,6 @@ public class AdminController {
         return "admin/revenue";
     }
 
-    @GetMapping("/products")
-    public String products(Model model) {
-        model.addAttribute("pageTitle", "Quản Lý Mẫu Hoa Tươi");
-        return "admin/product-list";
-    }
-
-    @GetMapping("/products/form")
-    public String productForm(Model model) {
-        model.addAttribute("pageTitle", "Cập Nhật Thông Tin Hoa");
-        return "admin/product-form";
-    }
 
     @GetMapping("/orders")
     public String orders(Model model) {
