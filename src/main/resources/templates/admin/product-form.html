@@ -4,123 +4,121 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{admin/layout}">
 <head>
-  <title>Thêm / Chỉnh Sửa Mẫu Hoa - Vườn Hoa Tươi Admin</title>
+  <title th:text="${pageTitle} + ' - Vườn Hoa Tươi Admin'">Chi Tiết Mẫu Hoa - Vườn Hoa Tươi Admin</title>
 </head>
 <body>
   <div layout:fragment="content">
-<div class="admin-content">
-        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Đã lưu thông tin mẫu hoa!'); window.location.href=\'/admin/products\';">
-          <div class="page-header-row">
-            <div class="page-header-text">
-              <h2>Chi Tiết Mẫu Hoa Tươi</h2>
-              <p>Điền thông tin mô tả, giá bán và chọn ảnh sắc nét cho mẫu hoa.</p>
+    <div class="admin-content">
+      <form th:action="@{/admin/products/save}" th:object="${product}" method="POST">
+        <input type="hidden" th:field="*{id}">
+
+        <div class="page-header-row">
+          <div class="page-header-text">
+            <h2 th:text="${product.id != null} ? 'Cập Nhật Mẫu Hoa #' + ${product.id} : 'Thêm Mẫu Hoa Mới'">Chi Tiết Mẫu Hoa Tươi</h2>
+            <p>Điền thông tin mô tả, giá bán và dán link ảnh mẫu hoa online.</p>
+          </div>
+          <div style="display:flex; gap:12px;">
+            <a th:href="@{/admin/products}" class="btn btn-outline">Hủy Bỏ</a>
+            <button type="submit" class="btn btn-primary" th:text="${product.id != null} ? 'Cập Nhật Sản Phẩm' : 'Lưu Sản Phẩm'">Lưu Sản Phẩm</button>
+          </div>
+        </div>
+
+        <div class="form-grid-2" style="grid-template-columns: 1fr 340px;">
+          
+          <!-- THÔNG TIN CHÍNH -->
+          <div class="card-block">
+            <h3 class="card-title" style="margin-bottom:20px;">Thông Tin Cơ Bản</h3>
+
+            <div class="form-group">
+              <label class="form-label">Tên Mẫu Hoa <span style="color:red;">*</span></label>
+              <input type="text" th:field="*{name}" class="form-control" placeholder="Ví dụ: Bó Hoa Tulip White July - Trắng Tinh Khôi">
+              <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:#D32F2F; font-size:0.8rem; margin-top:4px; display:block;"></span>
             </div>
-            <div style="display:flex; gap:12px;">
-              <a th:href="@{/admin/products}" href="/admin/products" class="btn btn-outline">Hủy Bỏ</a>
-              <button type="submit" class="btn btn-primary">Lưu Sản Phẩm</button>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Đường Dẫn Slug <span style="color:red;">*</span></label>
+                <input type="text" th:field="*{slug}" class="form-control" placeholder="bo-hoa-tulip-white-july">
+                <span th:if="${#fields.hasErrors('slug')}" th:errors="*{slug}" style="color:#D32F2F; font-size:0.8rem; margin-top:4px; display:block;"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Danh Mục Chính <span style="color:red;">*</span></label>
+                <select th:field="*{category.id}" class="form-control">
+                  <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}">Bó Hoa Tươi</option>
+                </select>
+                <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}" style="color:#D32F2F; font-size:0.8rem; margin-top:4px; display:block;"></span>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label">Giá Bán (₫) <span style="color:red;">*</span></label>
+                <input type="number" th:field="*{price}" class="form-control" placeholder="650000">
+                <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" style="color:#D32F2F; font-size:0.8rem; margin-top:4px; display:block;"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Giá Gốc Niêm Yết (₫)</label>
+                <input type="number" th:field="*{oldPrice}" class="form-control" placeholder="750000">
+                <span th:if="${#fields.hasErrors('oldPrice')}" th:errors="*{oldPrice}" style="color:#D32F2F; font-size:0.8rem; margin-top:4px; display:block;"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Thành Phần Hoa & Phụ Kiện</label>
+              <textarea th:field="*{composition}" class="form-control" rows="3" placeholder="Nhập chi tiết: 10 bông Tulip trắng Hà Lan, lá bạc nhập khẩu, giấy gói lụa cao cấp..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Mô Tả Sản Phẩm & Ý Nghĩa</label>
+              <textarea th:field="*{description}" class="form-control" rows="5" placeholder="Viết câu chuyện và thông điệp của bó hoa..."></textarea>
             </div>
           </div>
 
-          <div class="form-grid-2" style="grid-template-columns: 1fr 340px;">
-            
-            <!-- THÔNG TIN CHÍNH -->
+          <!-- ẢNH SẢN PHẨM & CẤU HÌNH -->
+          <div style="display:flex; flex-direction:column; gap:24px;">
             <div class="card-block">
-              <h3 class="card-title" style="margin-bottom:20px;">Thông Tin Cơ Bản</h3>
-
+              <h3 class="card-title" style="margin-bottom:16px;">Hình Ảnh Đại Diện</h3>
               <div class="form-group">
-                <label class="form-label">Tên Mẫu Hoa <span style="color:red;">*</span></label>
-                <input type="text" class="form-control" placeholder="Ví dụ: Bó Hoa Tulip White July - Trắng Tinh Khôi" value="Bó Hoa Tulip White July - Trắng Tinh Khôi" required>
-              </div>
-
-              <div class="form-grid-2">
-                <div class="form-group">
-                  <label class="form-label">Mã SKU <span style="color:red;">*</span></label>
-                  <input type="text" class="form-control" placeholder="VHT-TLP-001" value="VHT-TLP-001" required>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Danh Mục Chính</label>
-                  <select class="form-control">
-                    <option value="bo-hoa">Bó Hoa Tươi</option>
-                    <option value="hoa-sinh-nhat">Hoa Sinh Nhật</option>
-                    <option value="hoa-khai-truong">Hoa Khai Trương</option>
-                    <option value="hop-mica">Hộp Hoa Mica</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-grid-2">
-                <div class="form-group">
-                  <label class="form-label">Giá Bán Khuyến Mãi (₫) <span style="color:red;">*</span></label>
-                  <input type="number" class="form-control" placeholder="650000" value="650000" required>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Giá Gốc Niêm Yết (₫)</label>
-                  <input type="number" class="form-control" placeholder="750000" value="750000">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Thành Phần Hoa & Giấy Gói</label>
-                <textarea class="form-control" rows="3" placeholder="Nhập chi tiết: 10 bông Tulip trắng Hà Lan, lá bạc nhập khẩu, giấy gói lụa cao cấp...">10 Bông Tulip trắng Hà Lan nhập khẩu, Lá bạc Eucalyptus, Giấy gói lụa Hàn Quốc trang nhã, Nơ ruy băng satin.</textarea>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Mô Tả Sản Phẩm & Ý Nghĩa</label>
-                <textarea class="form-control" rows="5" placeholder="Viết câu chuyện và thông điệp của bó hoa...">Bó hoa Tulip White July mang vẻ đẹp thuần khiết, đại diện cho tình yêu chân thành và sự trân quý sâu sắc. Từng đóa tulip trắng được tuyển chọn kỹ lưỡng mỗi sáng sớm từ nhà vườn Đà Lạt và nhập khẩu Hà Lan.</textarea>
-              </div>
-            </div>
-
-            <!-- ẢNH SẢN PHẨM & CẤU HÌNH -->
-            <div style="display:flex; flex-direction:column; gap:24px;">
-              <div class="card-block">
-                <h3 class="card-title" style="margin-bottom:16px;">Hình Ảnh Đại Diện</h3>
-                <div class="form-group">
-                  <input type="file" class="form-control image-upload-input" data-preview-target="product-main-preview">
-                  <div style="margin-top:12px;">
-                    <img id="product-main-preview" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600&auto=format&fit=crop" style="width:100%; height:220px; object-fit:cover; border-radius:8px; border:1px solid var(--admin-border);" alt="Ảnh đại diện">
-                  </div>
-                </div>
-              </div>
-
-              <div class="card-block">
-                <h3 class="card-title" style="margin-bottom:16px;">Trạng Thái & Badge</h3>
-
-                <div class="form-group">
-                  <label class="form-label">Số Lượng Tồn Kho</label>
-                  <input type="number" class="form-control" value="32">
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Huy Hiệu Nổi Bật</label>
-                  <div style="display:flex; flex-direction:column; gap:8px;">
-                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
-                      <input type="checkbox" checked> Badge Giao 60 phút
-                    </label>
-                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
-                      <input type="checkbox" checked> Badge Giảm Giá (SALE -13%)
-                    </label>
-                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
-                      <input type="checkbox"> Badge Mẫu Mới
-                    </label>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label">Trạng Thái Hiển Thị</label>
-                  <select class="form-control">
-                    <option value="active">Đang Bán Trên Store</option>
-                    <option value="draft">Bản Nháp (Ẩn)</option>
-                    <option value="out_of_stock">Tạm Hết Hàng</option>
-                  </select>
+                <label class="form-label">Đường Dẫn URL Ảnh <span style="color:red;">*</span></label>
+                <input type="text" th:field="*{imageUrl}" class="form-control" placeholder="https://images.unsplash.com/..."
+                       oninput="document.getElementById('product-main-preview').src = this.value">
+                <span th:if="${#fields.hasErrors('imageUrl')}" th:errors="*{imageUrl}" style="color:#D32F2F; font-size:0.8rem; margin-top:4px; display:block;"></span>
+                <div style="margin-top:12px;">
+                  <img id="product-main-preview"
+                       th:src="${product.imageUrl != null and !product.imageUrl.isBlank() ? product.imageUrl : 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=600&auto=format&fit=crop'}"
+                       style="width:100%; height:220px; object-fit:cover; border-radius:8px; border:1px solid #ECECEC;" alt="Ảnh đại diện">
                 </div>
               </div>
             </div>
 
+            <div class="card-block">
+              <h3 class="card-title" style="margin-bottom:16px;">Trạng Thái & Badge</h3>
+
+              <div class="form-group">
+                <label class="form-label">Huy Hiệu Nổi Bật</label>
+                <select th:field="*{badgeTag}" class="form-control">
+                  <option value="">Không có huy hiệu</option>
+                  <option value="Sale">Sale (Đỏ)</option>
+                  <option value="Hot">Hot (Vàng)</option>
+                  <option value="Mới">Mới (Xanh lá)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Trạng Thái Hiển Thị</label>
+                <select th:field="*{active}" class="form-control">
+                  <option th:value="true">Đang Bán Trên Store</option>
+                  <option th:value="false">Tạm Ẩn</option>
+                </select>
+              </div>
+            </div>
           </div>
-        </form>
-      </div>
+
+        </div>
+      </form>
+    </div>
   </div>
 </body>
 </html>

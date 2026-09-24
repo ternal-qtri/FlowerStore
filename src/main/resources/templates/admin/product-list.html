@@ -22,6 +22,13 @@
           </div>
         </div>
 
+        <!-- THÔNG BÁO FLASH MESSAGE -->
+        <div th:if="${message}"
+             style="padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; font-weight: 500;"
+             th:styleappend="${messageType == 'success'} ? 'background:#E8F8F0; color:#1B8755; border:1px solid #C4EED8;' : 'background:#FDECEA; color:#D32F2F; border:1px solid #F9C0BC;'">
+          <span th:text="${message}">Thông báo</span>
+        </div>
+
         <!-- FILTER TOOLBAR -->
         <div class="card-block">
           <div class="card-header-flex">
