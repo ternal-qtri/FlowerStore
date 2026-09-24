@@ -79,4 +79,28 @@ public class AdminCategoryController {
         ra.addFlashAttribute("messageType", "success");
         return "redirect:/admin/categories?page=" + page;
     }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id,
+                         @RequestParam(defaultValue = "0") int page,
+                         RedirectAttributes ra) {
+        Optional<Category> opt = categoryService.findById(id);
+        if (opt.isEmpty()) {
+            ra.addFlashAttribute("message", "Danh mục không tồn tại!");
+            ra.addFlashAttribute("messageType", "danger");
+            return "redirect:/admin/categories?page=" + page;
+        }
+
+        Category category = opt.get();
+        if (category.getProducts() != null && !category.getProducts().isEmpty()) {
+            ra.addFlashAttribute("message", "Không thể xóa danh mục đang có sản phẩm liên kết!");
+            ra.addFlashAttribute("messageType", "danger");
+            return "redirect:/admin/categories?page=" + page;
+        }
+
+        categoryService.deleteById(id);
+        ra.addFlashAttribute("message", "Xóa danh mục thành công!");
+        ra.addFlashAttribute("messageType", "success");
+        return "redirect:/admin/categories?page=" + page;
+    }
 }
