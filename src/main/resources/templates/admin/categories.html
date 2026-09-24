@@ -17,40 +17,36 @@
           </div>
         </div>
 
+        <!-- THÔNG BÁO FLASH MESSAGE -->
+        <div th:if="${message}"
+             style="padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; font-weight: 500;"
+             th:styleappend="${messageType == 'success'} ? 'background:#E8F8F0; color:#1B8755; border:1px solid #C4EED8;' : 'background:#FDECEA; color:#D32F2F; border:1px solid #F9C0BC;'">
+          <span th:text="${message}">Thông báo</span>
+        </div>
+
         <div class="form-grid-2" style="grid-template-columns: 340px 1fr; align-items: start;">
           
           <!-- FORM THÊM / SỬA DANH MỤC -->
           <div class="card-block">
             <h3 class="card-title" style="margin-bottom: 16px;">Thêm Danh Mục Mới</h3>
-            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Đã lưu danh mục thành công!');">
+            <form th:action="@{/admin/categories}" th:object="${category}" method="POST">
               <div class="form-group">
                 <label class="form-label">Tên Danh Mục <span style="color:red;">*</span></label>
-                <input type="text" class="form-control" placeholder="Ví dụ: Hoa Tulip Tươi" required>
+                <input type="text" th:field="*{name}" class="form-control" placeholder="Ví dụ: Hoa Tulip Tươi">
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:#D32F2F; font-size:0.8rem; margin-top:4px; display:block;"></span>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Đường Dẫn Slug</label>
-                <input type="text" class="form-control" placeholder="hoa-tulip-tuoi" value="hoa-tulip-tuoi">
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Hình Ảnh Đại Diện</label>
-                <input type="file" class="form-control image-upload-input" data-preview-target="cat-preview">
-                <div style="margin-top:10px;">
-                  <img id="cat-preview" src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=300&auto=format&fit=crop" style="width:100%; height:120px; object-fit:cover; border-radius:6px;" alt="Preview">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label">Mô Tả Danh Mục</label>
-                <textarea class="form-control" rows="3" placeholder="Mô tả ngắn gọn hiển thị trên trang danh mục..."></textarea>
+                <label class="form-label">Đường Dẫn Slug <span style="color:red;">*</span></label>
+                <input type="text" th:field="*{slug}" class="form-control" placeholder="hoa-tulip-tuoi">
+                <span th:if="${#fields.hasErrors('slug')}" th:errors="*{slug}" style="color:#D32F2F; font-size:0.8rem; margin-top:4px; display:block;"></span>
               </div>
 
               <div class="form-group">
                 <label class="form-label">Trạng Thái</label>
-                <select class="form-control">
-                  <option value="active">Hiển Thị Trên Menu</option>
-                  <option value="hidden">Ẩn Tạm Thời</option>
+                <select th:field="*{active}" class="form-control">
+                  <option th:value="true">Hiển Thị Trên Menu</option>
+                  <option th:value="false">Ẩn Tạm Thời</option>
                 </select>
               </div>
 
@@ -68,7 +64,7 @@
               <table class="admin-table filterable-table">
                 <thead>
                   <tr>
-                    <th>Ảnh</th>
+                    <th>#</th>
                     <th>Tên Danh Mục</th>
                     <th>Slug</th>
                     <th>Số Sản Phẩm</th>
@@ -80,8 +76,8 @@
                   <tr th:if="${categoryPage.empty}">
                     <td colspan="6" style="text-align:center; padding: 24px; color:#777;">Chưa có danh mục nào trong hệ thống.</td>
                   </tr>
-                  <tr th:each="cat : ${categoryPage.content}">
-                    <td><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=120&auto=format&fit=crop" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="Ảnh danh mục"></td>
+                  <tr th:each="cat, stat : ${categoryPage.content}">
+                    <td><strong th:text="${stat.index + 1}">1</strong></td>
                     <td><strong th:text="${cat.name}">Hoa Sinh Nhật</strong></td>
                     <td><code th:text="'/' + ${cat.slug}">/hoa-sinh-nhat</code></td>
                     <td th:text="${cat.products != null ? #lists.size(cat.products) : 0} + ' sản phẩm'">0 sản phẩm</td>

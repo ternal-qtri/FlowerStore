@@ -12,4 +12,5 @@ public interface CategoryService {
     Optional<Category> findById(Integer id);
     Category save(Category category);
     void deleteById(Integer id);
+    boolean existsBySlug(String slug);
 }
