@@ -61,7 +61,7 @@
           <!-- BẢNG DANH SÁCH DANH MỤC -->
           <div class="card-block">
             <div class="card-header-flex">
-              <h3 class="card-title">Tất Cả Danh Mục (7)</h3>
+              <h3 class="card-title">Tất Cả Danh Mục (<span th:text="${categoryPage.totalElements}">0</span>)</h3>
             </div>
 
             <div class="table-responsive">
@@ -77,45 +77,18 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td><img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?q=80&w=120&auto=format&fit=crop" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="Hoa sinh nhật"></td>
-                    <td><strong>Hoa Sinh Nhật</strong></td>
-                    <td><code>/hoa-sinh-nhat</code></td>
-                    <td>48 sản phẩm</td>
-                    <td><span class="badge-status completed">Hiển thị</span></td>
-                    <td>
-                      <button class="btn btn-outline btn-sm btn-icon" title="Sửa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button>
-                      <button class="btn btn-danger btn-sm btn-icon" title="Xóa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
-                    </td>
+                  <tr th:if="${categoryPage.empty}">
+                    <td colspan="6" style="text-align:center; padding: 24px; color:#777;">Chưa có danh mục nào trong hệ thống.</td>
                   </tr>
-                  <tr>
-                    <td><img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=120&auto=format&fit=crop" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="Hoa khai trương"></td>
-                    <td><strong>Hoa Khai Trương</strong></td>
-                    <td><code>/hoa-khai-truong</code></td>
-                    <td>32 sản phẩm</td>
-                    <td><span class="badge-status completed">Hiển thị</span></td>
+                  <tr th:each="cat : ${categoryPage.content}">
+                    <td><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=120&auto=format&fit=crop" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="Ảnh danh mục"></td>
+                    <td><strong th:text="${cat.name}">Hoa Sinh Nhật</strong></td>
+                    <td><code th:text="'/' + ${cat.slug}">/hoa-sinh-nhat</code></td>
+                    <td th:text="${cat.products != null ? #lists.size(cat.products) : 0} + ' sản phẩm'">0 sản phẩm</td>
                     <td>
-                      <button class="btn btn-outline btn-sm btn-icon" title="Sửa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button>
-                      <button class="btn btn-danger btn-sm btn-icon" title="Xóa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
+                      <span th:if="${cat.active}" class="badge-status completed">Hiển thị</span>
+                      <span th:unless="${cat.active}" class="badge-status cancelled">Ẩn</span>
                     </td>
-                  </tr>
-                  <tr>
-                    <td><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80&w=120&auto=format&fit=crop" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="Bó hoa tươi"></td>
-                    <td><strong>Bó Hoa Tươi</strong></td>
-                    <td><code>/bo-hoa-tuoi</code></td>
-                    <td>64 sản phẩm</td>
-                    <td><span class="badge-status completed">Hiển thị</span></td>
-                    <td>
-                      <button class="btn btn-outline btn-sm btn-icon" title="Sửa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button>
-                      <button class="btn btn-danger btn-sm btn-icon" title="Xóa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?q=80&w=120&auto=format&fit=crop" style="width:40px;height:40px;border-radius:6px;object-fit:cover;" alt="Hộp hoa mica"></td>
-                    <td><strong>Hộp Hoa Mica Trong Suốt</strong></td>
-                    <td><code>/hop-hoa-mica</code></td>
-                    <td>16 sản phẩm</td>
-                    <td><span class="badge-status completed">Hiển thị</span></td>
                     <td>
                       <button class="btn btn-outline btn-sm btn-icon" title="Sửa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></button>
                       <button class="btn btn-danger btn-sm btn-icon" title="Xóa"><svg style="width:16px;height:16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg></button>
@@ -123,6 +96,23 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+
+            <!-- PHÂN TRANG -->
+            <div th:if="${categoryPage.totalPages > 1}" style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; padding-top:12px; border-top:1px solid #ECECEC;">
+              <div style="font-size:0.875rem; color:#666;">
+                Trang <strong th:text="${categoryPage.number + 1}">1</strong> / <span th:text="${categoryPage.totalPages}">1</span> (Tổng <span th:text="${categoryPage.totalElements}">0</span> danh mục)
+              </div>
+              <div style="display:flex; gap:6px;">
+                <a th:if="${categoryPage.hasPrevious()}" th:href="@{/admin/categories(page=${categoryPage.number - 1})}" class="btn btn-outline btn-sm">Trước</a>
+                <th:block th:each="i : ${#numbers.sequence(0, categoryPage.totalPages - 1)}">
+                  <a th:href="@{/admin/categories(page=${i})}"
+                     th:text="${i + 1}"
+                     th:classappend="${i == categoryPage.number} ? 'btn-primary' : 'btn-outline'"
+                     class="btn btn-sm" style="min-width:32px; text-align:center;">1</a>
+                </th:block>
+                <a th:if="${categoryPage.hasNext()}" th:href="@{/admin/categories(page=${categoryPage.number + 1})}" class="btn btn-outline btn-sm">Sau</a>
+              </div>
             </div>
           </div>
 

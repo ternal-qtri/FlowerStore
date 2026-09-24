@@ -1,8 +1,15 @@
 package com.flowerstore.service;
 
-import org.springframework.stereotype.Service;
+import com.flowerstore.entity.Category;
+import org.springframework.data.domain.Page;
 
-@Service
+import java.util.List;
+import java.util.Optional;
+
 public interface CategoryService {
-    
+    Page<Category> findAll(int page, int size);
+    List<Category> findAll();
+    Optional<Category> findById(Integer id);
+    Category save(Category category);
+    void deleteById(Integer id);
 }
