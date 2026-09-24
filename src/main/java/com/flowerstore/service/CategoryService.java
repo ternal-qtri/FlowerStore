@@ -13,4 +13,5 @@ public interface CategoryService {
     Category save(Category category);
     void deleteById(Integer id);
     boolean existsBySlug(String slug);
+    boolean existsBySlugAndIdNot(String slug, Integer id);
 }

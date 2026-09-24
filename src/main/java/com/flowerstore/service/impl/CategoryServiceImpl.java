@@ -49,4 +49,9 @@ public class CategoryServiceImpl implements CategoryService {
     public boolean existsBySlug(String slug) {
         return categoryRepository.existsBySlug(slug);
     }
+
+    @Override
+    public boolean existsBySlugAndIdNot(String slug, Integer id) {
+        return categoryRepository.existsBySlugAndIdNot(slug, id);
+    }
 }
