@@ -12,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.Optional;
+
 @Controller
 @RequestMapping("/admin/products")
 @RequiredArgsConstructor
@@ -87,6 +89,30 @@ public class AdminProductController {
         boolean isNew = (product.getId() == null);
         productService.save(product);
         ra.addFlashAttribute("message", isNew ? "Thêm mẫu hoa mới thành công!" : "Cập nhật mẫu hoa thành công!");
+        ra.addFlashAttribute("messageType", "success");
+        return "redirect:/admin/products?page=" + page;
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id,
+                         @RequestParam(defaultValue = "0") int page,
+                         RedirectAttributes ra) {
+        Optional<Product> opt = productService.findById(id);
+        if (opt.isEmpty()) {
+            ra.addFlashAttribute("message", "Sản phẩm không tồn tại!");
+            ra.addFlashAttribute("messageType", "danger");
+            return "redirect:/admin/products?page=" + page;
+        }
+
+        Product product = opt.get();
+        if (product.getOrderDetails() != null && !product.getOrderDetails().isEmpty()) {
+            ra.addFlashAttribute("message", "Không thể xóa mẫu hoa đã phát sinh đơn hàng! Hãy chuyển trạng thái sang 'Tạm ẩn'.");
+            ra.addFlashAttribute("messageType", "danger");
+            return "redirect:/admin/products?page=" + page;
+        }
+
+        productService.deleteById(id);
+        ra.addFlashAttribute("message", "Xóa mẫu hoa thành công!");
         ra.addFlashAttribute("messageType", "success");
         return "redirect:/admin/products?page=" + page;
     }
