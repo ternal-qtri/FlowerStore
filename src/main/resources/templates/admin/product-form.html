@@ -11,6 +11,7 @@
     <div class="admin-content">
       <form th:action="@{/admin/products/save}" th:object="${product}" method="POST">
         <input type="hidden" th:field="*{id}">
+        <input type="hidden" name="page" th:value="${page}">
 
         <div class="page-header-row">
           <div class="page-header-text">
@@ -18,7 +19,7 @@
             <p>Điền thông tin mô tả, giá bán và dán link ảnh mẫu hoa online.</p>
           </div>
           <div style="display:flex; gap:12px;">
-            <a th:href="@{/admin/products}" class="btn btn-outline">Hủy Bỏ</a>
+            <a th:href="@{/admin/products(page=${page})}" class="btn btn-outline">Hủy Bỏ</a>
             <button type="submit" class="btn btn-primary" th:text="${product.id != null} ? 'Cập Nhật Sản Phẩm' : 'Lưu Sản Phẩm'">Lưu Sản Phẩm</button>
           </div>
         </div>

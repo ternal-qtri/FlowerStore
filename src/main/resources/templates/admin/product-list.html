@@ -33,7 +33,7 @@
         <div class="card-block">
           <form th:action="@{/admin/products}" method="GET" class="card-header-flex">
             <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; flex:1;">
-              <input type="text" name="keyword" th:value="${keyword}" class="form-control table-search-input" style="max-width:280px;" placeholder="Tìm tên hoa, slug...">
+              <input type="text" name="keyword" th:value="${keyword}" class="form-control" style="max-width:280px;" placeholder="Tìm tên hoa, slug...">
               
               <select name="categoryId" class="form-control" style="max-width:200px;" onchange="this.form.submit()">
                 <option value="">Tất Cả Danh Mục</option>

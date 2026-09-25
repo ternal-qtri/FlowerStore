@@ -35,16 +35,38 @@ public class AdminProductController {
     }
 
     @GetMapping("/form")
-    public String createForm(Model model) {
+    public String createForm(@RequestParam(defaultValue = "0") int page, Model model) {
         model.addAttribute("product", new Product());
         model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("page", page);
         model.addAttribute("pageTitle", "Thêm Mẫu Hoa Mới");
         return "admin/product-form";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editForm(@PathVariable Long id,
+                           @RequestParam(defaultValue = "0") int page,
+                           Model model,
+                           RedirectAttributes ra) {
+        return productService.findById(id)
+                .map(product -> {
+                    model.addAttribute("product", product);
+                    model.addAttribute("categories", categoryService.findAll());
+                    model.addAttribute("page", page);
+                    model.addAttribute("pageTitle", "Cập Nhật Mẫu Hoa");
+                    return "admin/product-form";
+                })
+                .orElseGet(() -> {
+                    ra.addFlashAttribute("message", "Không tìm thấy sản phẩm có ID: " + id);
+                    ra.addFlashAttribute("messageType", "error");
+                    return "redirect:/admin/products?page=" + page;
+                });
     }
 
     @PostMapping("/save")
     public String save(@Valid @ModelAttribute("product") Product product,
                        BindingResult result,
+                       @RequestParam(defaultValue = "0") int page,
                        Model model,
                        RedirectAttributes ra) {
         boolean isDuplicate = (product.getId() == null)
@@ -57,7 +79,8 @@ public class AdminProductController {
 
         if (result.hasErrors()) {
             model.addAttribute("categories", categoryService.findAll());
-            model.addAttribute("pageTitle", product.getId() == null ? "Thêm Mẫu Hoa Mới" : "Cập Nhật Thông Tin Hoa");
+            model.addAttribute("page", page);
+            model.addAttribute("pageTitle", product.getId() == null ? "Thêm Mẫu Hoa Mới" : "Cập Nhật Mẫu Hoa");
             return "admin/product-form";
         }
 
@@ -65,6 +88,6 @@ public class AdminProductController {
         productService.save(product);
         ra.addFlashAttribute("message", isNew ? "Thêm mẫu hoa mới thành công!" : "Cập nhật mẫu hoa thành công!");
         ra.addFlashAttribute("messageType", "success");
-        return "redirect:/admin/products";
+        return "redirect:/admin/products?page=" + page;
     }
 }
